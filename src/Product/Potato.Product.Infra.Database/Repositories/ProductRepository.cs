@@ -9,11 +9,6 @@ namespace Potato.Product.Infra.Database.Repositories
             throw new NotImplementedException();
         }
 
-        public void Delete(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<Domain.Product> GetAll()
         {
             throw new NotImplementedException();
@@ -24,7 +19,12 @@ namespace Potato.Product.Infra.Database.Repositories
             throw new NotImplementedException();
         }
 
-        public void Update(Domain.Product product)
+        public void Remove(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Guid id, Domain.Product product)
         {
             throw new NotImplementedException();
         }
