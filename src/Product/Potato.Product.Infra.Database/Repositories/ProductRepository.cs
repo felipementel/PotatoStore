@@ -4,27 +4,27 @@ namespace Potato.Product.Infra.Database.Repositories
 {
     public class ProductRepository : IProductRepository
     {
-        public void Add(Domain.Product product)
+        public Task AddAsync(Domain.Product product)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Domain.Product> GetAll()
+        public Task<IEnumerable<Domain.Product>> GetAllAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Domain.Product GetById(Guid id)
+        public Task<Domain.Product> GetByIdAsync(Guid id)
         {
             throw new NotImplementedException();
         }
 
-        public void Remove(Guid id)
+        public Task RemoveAsync(Guid id)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(Guid id, Domain.Product product)
+        public Task UpdateAsync(Guid id, Domain.Product product)
         {
             throw new NotImplementedException();
         }

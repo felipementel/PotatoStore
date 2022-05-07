@@ -2,10 +2,10 @@
 {
     public interface IProductRepository
     {
-        void Add(Product product);
-        void Update(Guid id,Product product);
-        void Remove(Guid id);
-        Product GetById(Guid id);
-        IEnumerable<Product> GetAll();
+        Task AddAsync(Product product);
+        Task UpdateAsync(Guid id, Product product);
+        Task RemoveAsync(Guid id);
+        Task<Product> GetByIdAsync(Guid id);
+        Task<IEnumerable<Product>> GetAllAsync();
     }
 }
