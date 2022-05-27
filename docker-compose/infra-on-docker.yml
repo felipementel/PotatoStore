@@ -30,6 +30,22 @@ services:
     networks:
      - potato-net
 
+  pgAdmin:
+    image: dpage/pgadmin4:6.7
+    container_name: pgadmin4-felipe
+    depends_on:
+      - potato-postgres
+    restart: always
+    ports:
+      - 8099:80
+      - 443:443
+    environment:
+      PGADMIN_DEFAULT_EMAIL: estudo@avanade.com
+      PGADMIN_DEFAULT_PASSWORD: abc1234
+      PGADMIN_DISABLE_POSTFIX: "true"
+    networks:
+      - potato-net
+
 networks:
   potato-net:
     driver: bridge
