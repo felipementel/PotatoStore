@@ -1,20 +1,20 @@
-﻿using Potato.Product.Domain.Repositories;
+﻿using Potato.Product.Domain.Aggregates.Products.Interfaces.Repositories;
 
 namespace Potato.Product.Infra.Database.Repositories
 {
     public class ProductRepository : IProductRepository
     {
-        public Task AddAsync(Domain.Product product)
+        public Task AddAsync(Domain.Aggregates.Products.Entities.Product product)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Domain.Product>> GetAllAsync()
+        public Task<IEnumerable<Domain.Aggregates.Products.Entities.Product>> GetAllAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task<Domain.Product> GetByIdAsync(Guid id)
+        public Task<Domain.Aggregates.Products.Entities.Product> GetByIdAsync(Guid id)
         {
             throw new NotImplementedException();
         }
@@ -24,7 +24,7 @@ namespace Potato.Product.Infra.Database.Repositories
             throw new NotImplementedException();
         }
 
-        public Task UpdateAsync(Guid id, Domain.Product product)
+        public Task UpdateAsync(Guid id, Domain.Aggregates.Products.Entities.Product product)
         {
             throw new NotImplementedException();
         }

@@ -1,13 +1,13 @@
-﻿namespace Potato.Product.Domain
+﻿namespace Potato.Product.Domain.Aggregates.Products.Entities
 {
     public class /*struct record*/ Product
     {
         public Product(
-            Guid id, 
-            string name, 
+            Guid id,
+            string name,
             string description,
             URL url,
-            string sKU, 
+            string sKU,
             decimal price)
         {
             Id = id;
@@ -29,8 +29,6 @@
         public string SKU { get; init; }
 
         public decimal Price { get; init; }
-
-
 
         public DateOnly OnCreated { get; set; }
 

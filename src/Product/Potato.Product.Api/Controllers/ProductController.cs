@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Potato.Product.Application.AppServices;
+using Potato.Product.Application.Dtos;
 
 namespace Potato.Product.Api.Controllers;
 
@@ -32,8 +34,12 @@ public class ProductController : ControllerBase
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> CreateProduct()
+    public async Task<IActionResult> CreateProduct([FromBody] ProductDto productDto)
     {
+        ProductAppService productAppService = new ProductAppService();
+
+        productAppService.InsertAsync(productDto);
+
         return Ok();
     }
 }
