@@ -1,3 +1,6 @@
+# docker-compose -f infra-on-docker.yml up -d --build
+# docker-compose -f infra-on-docker.yml down --remove-orphans
+
 version: '3.1'
 
 services:
@@ -30,15 +33,15 @@ services:
     networks:
      - potato-net
 
-  pgAdmin:
+  potato-pgAdmin:
     image: dpage/pgadmin4:6.7
-    container_name: pgadmin4-felipe
+    container_name: pgadmin4-potato
     depends_on:
       - potato-postgres
     restart: always
     ports:
-      - 8099:80
-      - 443:443
+      - 9046:80
+      - 9047:443
     environment:
       PGADMIN_DEFAULT_EMAIL: estudo@avanade.com
       PGADMIN_DEFAULT_PASSWORD: abc1234
@@ -137,6 +140,9 @@ services:
       - xpack.license.self_generated.type=${LICENSE}
     mem_limit: ${MEM_LIMIT}
     ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
       memlock:
         soft: -1
         hard: -1
@@ -177,6 +183,9 @@ services:
       - xpack.license.self_generated.type=${LICENSE}
     mem_limit: ${MEM_LIMIT}
     ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
       memlock:
         soft: -1
         hard: -1
@@ -217,6 +226,9 @@ services:
       - xpack.license.self_generated.type=${LICENSE}
     mem_limit: ${MEM_LIMIT}
     ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
       memlock:
         soft: -1
         hard: -1
