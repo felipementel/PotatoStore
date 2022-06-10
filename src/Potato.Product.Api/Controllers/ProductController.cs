@@ -17,16 +17,16 @@ public class ProductController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet]
-    [MapToApiVersion("1.0")]
-    [Produces("application/json")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> GetAll()
-    {
-        return Ok();
-    }
+    //[HttpGet]
+    //[MapToApiVersion("1.0")]
+    //[Produces("application/json")]
+    //[ProducesResponseType(typeof(IEnumerable<ProductDto>), StatusCodes.Status200OK)]
+    //[ProducesResponseType(StatusCodes.Status404NotFound)]
+    //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    //public async Task<IActionResult> GetAll()
+    //{
+    //    return Ok();
+    //}
 
     [HttpPost]
     [MapToApiVersion("1.0")]
@@ -38,7 +38,7 @@ public class ProductController : ControllerBase
     {
         ProductAppService productAppService = new ProductAppService();
 
-        productAppService.InsertAsync(productDto);
+        await productAppService.InsertAsync(productDto);
 
         return Ok();
     }

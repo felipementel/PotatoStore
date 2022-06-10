@@ -9,7 +9,7 @@ namespace Potato.Product.Application.AppServices
         {
             ProductServices productServices = new ProductServices();
 
-            return await productServices.InsertAsync(productDto);
+            return await productServices.AddAsync(productDto);
         }
     }
 }

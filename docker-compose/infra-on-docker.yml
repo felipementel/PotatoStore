@@ -19,6 +19,8 @@ services:
       POSTGRES_PASSWORD: example
       POSTGRES_USER: user01
       POSTGRES_DB: PotatoDatabase
+    ports:
+      - 5432:5432
     networks:
      - potato-net
   
@@ -48,6 +50,7 @@ services:
       PGADMIN_DISABLE_POSTFIX: "true"
     networks:
       - potato-net
+
   setup:
     image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}
     volumes:
