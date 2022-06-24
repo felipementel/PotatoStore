@@ -5,7 +5,7 @@ namespace Potato.Product.Application.Dtos
     public class ProductDto
     {
         public ProductDto(
-            Guid id,
+            //Guid id,
             string name,
             string description,
             //string url,
