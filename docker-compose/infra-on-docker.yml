@@ -16,24 +16,24 @@ services:
     restart: always
     container_name: potato-postgres
     environment:
-      POSTGRES_PASSWORD: example
       POSTGRES_USER: user01
+      POSTGRES_PASSWORD: example      
       POSTGRES_DB: PotatoDatabase
     ports:
       - 5432:5432
     networks:
      - potato-net
   
-  potato-adminer:
-    image: adminer:4.8.1-standalone
-    container_name: adminer-potato
-    restart: always
-    ports:
-      - 9045:8080
-    depends_on:
-      - potato-postgres
-    networks:
-     - potato-net
+  # potato-adminer:
+  #   image: adminer:4.8.1-standalone
+  #   container_name: adminer-potato
+  #   restart: always
+  #   ports:
+  #     - 9045:8080
+  #   depends_on:
+  #     - potato-postgres
+  #   networks:
+  #    - potato-net
 
   potato-pgAdmin:
     image: dpage/pgadmin4:6.7

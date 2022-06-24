@@ -25,3 +25,24 @@ https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotne
 
 https://www.npgsql.org/efcore
 
+## Comandos
+
+### Para efetivar a alteração no banco de dados pelo Migrations
+
+```
+dotnet ef migrations add InitDatabase --project Potato.Product.Infra.Database -c Potato.Product.Infra.Database.ProductContext --verbose
+```
+
+```
+dotnet ef database update InitDatabase --project Potato.Product.Infra.Database -c Potato.Product.Infra.Database.ProductContext --verbose
+```
+
+```json
+{
+  "name": "Kleber Edson",
+  "description": "dupla de dois",
+  "url": "http://avanade-estudo.com.br",
+  "sku": "$#RTGVDF",
+  "price": 99.33
+}
+```

@@ -12,8 +12,8 @@ using Potato.Product.Infra.Database;
 namespace Potato.Product.Infra.Database.Migrations
 {
     [DbContext(typeof(ProductContext))]
-    [Migration("20220610012326_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20220624013329_InitDatabase")]
+    partial class InitDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

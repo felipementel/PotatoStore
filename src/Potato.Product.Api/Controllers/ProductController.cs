@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Potato.Product.Application.AppServices;
 using Potato.Product.Application.Dtos;
+using Potato.Product.Application.Interfaces.Services;
 
 namespace Potato.Product.Api.Controllers;
 
@@ -12,10 +13,17 @@ public class ProductController : ControllerBase
 {
     private readonly ILogger<ProductController> _logger;
 
-    public ProductController(ILogger<ProductController> logger)
+    public readonly IProductAppService _productAppService;
+
+    public ProductController(
+        ILogger<ProductController> logger,
+        IProductAppService productAppService)
     {
         _logger = logger;
+        _productAppService = productAppService;
     }
+
+
 
     //[HttpGet]
     //[MapToApiVersion("1.0")]
@@ -36,9 +44,7 @@ public class ProductController : ControllerBase
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> CreateProduct([FromBody] ProductDto productDto)
     {
-        ProductAppService productAppService = new ProductAppService();
-
-        await productAppService.InsertAsync(productDto);
+        await _productAppService.InsertAsync(productDto);
 
         return Ok();
     }

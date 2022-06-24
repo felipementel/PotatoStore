@@ -1,4 +1,11 @@
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Potato.Product.Application.AppServices;
+using Potato.Product.Application.Interfaces.Services;
+using Potato.Product.Domain.Aggregates.Products.Interfaces.Repositories;
+using Potato.Product.Domain.Aggregates.Products.Interfaces.Services;
+using Potato.Product.Domain.Aggregates.Products.Services;
+using Potato.Product.Infra.Database;
+using Potato.Product.Infra.Database.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,6 +33,14 @@ builder.Services.AddVersionedApiExplorer(
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+//IoC
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductAppService, ProductAppService>();
+builder.Services.AddScoped<IProductService, ProductService>();
+
+builder.Services.AddSingleton(new ProductContext());
+
 
 var app = builder.Build();
 

@@ -2,7 +2,7 @@
 {
     public interface IProductRepository
     {
-        Task AddAsync(Entities.Product product);
+        Task<Entities.Product> AddAsync(Entities.Product product);
 
         Task UpdateAsync(Guid id, Entities.Product product);
 
