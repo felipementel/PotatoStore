@@ -8,7 +8,7 @@ namespace Potato.Product.Application.Dtos
             Guid id,
             string name,
             string description,
-            string url,
+            //string url,
             string sKU, 
             decimal price,
             DateOnly onCreated,
@@ -17,7 +17,7 @@ namespace Potato.Product.Application.Dtos
             Id = id;
             Name = name;
             Description = description;
-            this.URL = url;
+            //this.URL = url;
             SKU = sKU;
             Price = price;
             OnCreated = onCreated;
@@ -45,7 +45,7 @@ namespace Potato.Product.Application.Dtos
                 id: dto.Id,
                 name: dto.Name,
                 dto.Description,
-                url: new Domain.Aggregates.Products.Entities.URL { Endereco = dto.URL },
+                //url: new Domain.Aggregates.Products.Entities.URL { Endereco = dto.URL },
                 sKU: dto.SKU,
                 price: dto.Price);
 
@@ -53,7 +53,7 @@ namespace Potato.Product.Application.Dtos
            new (entity.Id,
                entity.Name,
                entity.Description,
-               entity.url.Endereco,
+               //entity.url.Endereco,
                entity.SKU,
                entity.Price,
                entity.OnCreated,
