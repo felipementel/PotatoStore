@@ -6,7 +6,14 @@ Commands to create a project
 > dotnet new globaljson --sdk-version 6.0.301
 > 
 > dotnet new webapi --name Potato.Product
-> 
+
+
+To use in WSL for ELK warmup
+
+```
+sysctl -w vm.max_map_count=262144
+```
+
 References
 
 1. To create a project:
