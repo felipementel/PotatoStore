@@ -3,5 +3,7 @@
     public interface IProductService
     {
         Task<Entities.Product> AddAsync(Entities.Product product);
+
+        Task<Entities.Product> GetByIdAsync(Guid productId);
     }
 }

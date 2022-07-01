@@ -25,16 +25,18 @@ public class ProductController : ControllerBase
 
 
 
-    //[HttpGet]
-    //[MapToApiVersion("1.0")]
-    //[Produces("application/json")]
-    //[ProducesResponseType(typeof(IEnumerable<ProductDto>), StatusCodes.Status200OK)]
-    //[ProducesResponseType(StatusCodes.Status404NotFound)]
-    //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    //public async Task<IActionResult> GetAll()
-    //{
-    //    return Ok();
-    //}
+    [HttpGet("{productId}")]
+    [MapToApiVersion("1.0")]
+    [Produces("application/json")]
+    [ProducesResponseType(typeof(IEnumerable<ProductDto>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<IActionResult> GetById(Guid productId)
+    {
+        var retorno = _productAppService.GetByIdAsync(productId);
+
+        return Ok(retorno);
+    }
 
     [HttpPost]
     [MapToApiVersion("1.0")]

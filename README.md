@@ -29,12 +29,14 @@ https://www.npgsql.org/efcore
 
 ### Para efetivar a alteração no banco de dados pelo Migrations
 
+> Para executar os comandos, esteja na pasta <b>src</b>
+
 ```
-dotnet ef migrations add InitDatabase --project Potato.Product.Infra.Database -c Potato.Product.Infra.Database.ProductContext --verbose
+dotnet ef migrations add InitDatabase --project Potato.Product.Infra.Database -s Potato.Product.Api -c Potato.Product.Infra.Database.ProductContext --verbose
 ```
 
 ```
-dotnet ef database update InitDatabase --project Potato.Product.Infra.Database -c Potato.Product.Infra.Database.ProductContext --verbose
+dotnet ef database update InitDatabase --project Potato.Product.Infra.Database -s Potato.Product.Api -c Potato.Product.Infra.Database.ProductContext --verbose
 ```
 
 ```json

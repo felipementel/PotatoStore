@@ -24,9 +24,13 @@ namespace Potato.Product.Infra.Database.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<Domain.Aggregates.Products.Entities.Product> GetByIdAsync(Guid id)
+        public async Task<Domain.Aggregates.Products.Entities.Product> GetByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var item = _productContext.Products.FirstOrDefault(p => p.Id == id);
+
+            return item;
+
+            //TODO (Luis): Revisar metodo assincrono
         }
 
         public Task RemoveAsync(Guid id)

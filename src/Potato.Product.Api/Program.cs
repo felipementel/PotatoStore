@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.EntityFrameworkCore;
 using Potato.Product.Application.AppServices;
 using Potato.Product.Application.Interfaces.Services;
 using Potato.Product.Domain.Aggregates.Products.Interfaces.Repositories;
@@ -15,8 +16,8 @@ builder.Services.AddControllers();
 builder.Services.AddApiVersioning(
     options =>
     {
-                    // reporting api versions will return the headers "api-supported-versions" and "api-deprecated-versions"
-             options.ReportApiVersions = true;
+        // reporting api versions will return the headers "api-supported-versions" and "api-deprecated-versions"
+        options.ReportApiVersions = true;
     });
 builder.Services.AddVersionedApiExplorer(
     options =>
@@ -39,7 +40,21 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductAppService, ProductAppService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 
-builder.Services.AddSingleton(new ProductContext());
+builder.Services.AddDbContext<ProductContext>(p =>
+{
+    p.UseNpgsql(builder.Configuration["ConnectionString:Database"],
+        w =>
+        {
+            w.CommandTimeout(40);
+            w.EnableRetryOnFailure(
+                maxRetryCount: 3,
+                maxRetryDelay: TimeSpan.FromSeconds(5),
+                errorCodesToAdd: null);
+        });
+    p.UseQueryTrackingBehavior(Microsoft.EntityFrameworkCore.QueryTrackingBehavior.TrackAll);
+    p.EnableDetailedErrors();
+    p.EnableThreadSafetyChecks();
+});
 
 
 var app = builder.Build();

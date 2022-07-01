@@ -13,6 +13,13 @@ namespace Potato.Product.Application.AppServices
             _productServices = productServices;
         }
 
+        public async Task<ProductDto> GetByIdAsync(Guid productId)
+        {
+            var retorno = await _productServices.GetByIdAsync(productId);
+
+            return retorno;
+        }
+
         public async Task<ProductDto> InsertAsync(ProductDto productDto)
         {
 
