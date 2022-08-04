@@ -21,6 +21,8 @@ services:
       POSTGRES_USER: user01
       POSTGRES_PASSWORD: example      
       POSTGRES_DB: PotatoDatabase
+    volumes:
+     - postgresql-db:/var/lib/postgresql/data
     ports:
       - 5432:5432
     networks:
@@ -116,8 +118,7 @@ services:
 
   es01:
     depends_on:
-      setup:
-        condition: service_healthy
+      - setup
     image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}
     volumes:
       - certs:/usr/share/elasticsearch/config/certs
@@ -143,7 +144,11 @@ services:
       - xpack.security.transport.ssl.certificate_authorities=certs/ca/ca.crt
       - xpack.security.transport.ssl.verification_mode=certificate
       - xpack.license.self_generated.type=${LICENSE}
-    mem_limit: ${MEM_LIMIT}
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: ${MEM_LIMIT}   
     ulimits:
       nofile:
         soft: 65536
@@ -186,7 +191,11 @@ services:
       - xpack.security.transport.ssl.certificate_authorities=certs/ca/ca.crt
       - xpack.security.transport.ssl.verification_mode=certificate
       - xpack.license.self_generated.type=${LICENSE}
-    mem_limit: ${MEM_LIMIT}
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: ${MEM_LIMIT}
     ulimits:
       nofile:
         soft: 65536
@@ -229,7 +238,11 @@ services:
       - xpack.security.transport.ssl.certificate_authorities=certs/ca/ca.crt
       - xpack.security.transport.ssl.verification_mode=certificate
       - xpack.license.self_generated.type=${LICENSE}
-    mem_limit: ${MEM_LIMIT}
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: ${MEM_LIMIT}
     ulimits:
       nofile:
         soft: 65536
@@ -249,12 +262,9 @@ services:
 
   kibana:
     depends_on:
-      es01:
-        condition: service_healthy
-      es02:
-        condition: service_healthy
-      es03:
-        condition: service_healthy
+      - es01
+      - es02
+      - es03
     image: docker.elastic.co/kibana/kibana:${STACK_VERSION}
     volumes:
       - certs:/usr/share/kibana/config/certs
@@ -267,7 +277,11 @@ services:
       - ELASTICSEARCH_USERNAME=kibana_system
       - ELASTICSEARCH_PASSWORD=${KIBANA_PASSWORD}
       - ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES=config/certs/ca/ca.crt
-    mem_limit: ${MEM_LIMIT}
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: ${MEM_LIMIT}
     healthcheck:
       test:
         [
@@ -293,3 +307,5 @@ volumes:
     driver: local
   kibanadata:
     driver: local
+  # Volume for PostgreSQL database  
+  postgresql-db:
