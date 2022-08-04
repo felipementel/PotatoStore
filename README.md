@@ -7,6 +7,10 @@ Commands to create a project
 > 
 > dotnet new webapi --name Potato.Product
 
+IP Tables to WSL-2
+```
+update-alternatives --config iptables
+```
 
 To use in WSL for ELK warmup
 
