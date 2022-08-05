@@ -7,5 +7,7 @@ namespace Potato.Product.Application.Interfaces.Services
         Task<ProductDto> InsertAsync(ProductDto product);
 
         Task<ProductDto> GetByIdAsync(Guid productId);
+
+        Task<IEnumerable<ProductDto>> GetAllAsync();
     }
 }

@@ -19,9 +19,9 @@ namespace Potato.Product.Infra.Database.Repositories
             return product;
         }
 
-        public Task<IEnumerable<Domain.Aggregates.Products.Entities.Product>> GetAllAsync()
+        public async Task<IEnumerable<Domain.Aggregates.Products.Entities.Product>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return _productContext.Products.ToList();
         }
 
         public async Task<Domain.Aggregates.Products.Entities.Product> GetByIdAsync(Guid id)

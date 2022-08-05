@@ -50,4 +50,17 @@ public class ProductController : ControllerBase
 
         return Ok();
     }
+
+    [HttpGet]
+    [MapToApiVersion("1.0")]
+    [Produces("application/json")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<IActionResult> GetAllAsync()
+    {
+        var retorno = await _productAppService.GetAllAsync();
+
+        return Ok(retorno);
+    }
 }
