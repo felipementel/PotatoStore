@@ -19,8 +19,6 @@ namespace Potato.Product.Application.AppServices
             var retorno = await _productServices.GetAllAsync();
 
             return retorno.Select<Domain.Aggregates.Products.Entities.Product, ProductDto>(x => x).ToList();
-
-            //return retorno.Select(p => (ProductDto)p).ToList();
         }
 
         public async Task<ProductDto> GetByIdAsync(Guid productId)
