@@ -50,4 +50,10 @@ public class ProductController : ControllerBase
 
         return Ok();
     }
+
+    [HttpDelete]
+    public async Task DeleteAsync(Guid productId) 
+    {
+        await _productAppService.DeleteAsync(productId);
+    }
 }

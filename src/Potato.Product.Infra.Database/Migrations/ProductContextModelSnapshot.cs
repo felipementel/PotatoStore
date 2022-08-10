@@ -17,7 +17,7 @@ namespace Potato.Product.Infra.Database.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.5")
+                .HasAnnotation("ProductVersion", "6.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -29,6 +29,10 @@ namespace Potato.Product.Infra.Database.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Description2")
                         .IsRequired()
                         .HasColumnType("text");
 
