@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Potato.Product.Application.AppServices;
 using Potato.Product.Application.Dtos;
 using Potato.Product.Application.Interfaces.Services;
 
@@ -48,6 +47,17 @@ public class ProductController : ControllerBase
     {
         await _productAppService.InsertAsync(productDto);
 
+        return Ok();
+    }
+
+    [HttpPatch]
+    [MapToApiVersion("1.0")]
+    [Produces("application/json")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<IActionResult> UpdateProduct([FromBody] ProductDto productDto)
+    {
         return Ok();
     }
 }

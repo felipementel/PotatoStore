@@ -29,8 +29,6 @@ namespace Potato.Product.Infra.Database.Repositories
             var item = _productContext.Products.FirstOrDefault(p => p.Id == id);
 
             return item;
-
-            //TODO (Luis): Revisar metodo assincrono
         }
 
         public Task RemoveAsync(Guid id)
@@ -39,6 +37,11 @@ namespace Potato.Product.Infra.Database.Repositories
         }
 
         public Task UpdateAsync(Guid id, Domain.Aggregates.Products.Entities.Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task PartialUpdateAsync()
         {
             throw new NotImplementedException();
         }

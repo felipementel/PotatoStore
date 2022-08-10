@@ -5,5 +5,7 @@
         Task<Entities.Product> AddAsync(Entities.Product product);
 
         Task<Entities.Product> GetByIdAsync(Guid productId);
+
+        Task<Entities.Product> PatchAsync(Entities.Product product);
     }
 }
