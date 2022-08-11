@@ -1,6 +1,7 @@
 ﻿using Potato.Product.Application.Dtos;
 using Potato.Product.Application.Interfaces.Services;
 using Potato.Product.Domain.Aggregates.Products.Interfaces.Services;
+using System.Linq;
 
 namespace Potato.Product.Application.AppServices
 {
@@ -11,6 +12,13 @@ namespace Potato.Product.Application.AppServices
         public ProductAppService(IProductService productServices)
         {
             _productServices = productServices;
+        }
+
+        public async Task<IEnumerable<ProductDto>> GetAllAsync()
+        {
+            var retorno = await _productServices.GetAllAsync();
+
+            return retorno.Select<Domain.Aggregates.Products.Entities.Product, ProductDto>(x => x).ToList();
         }
 
         public async Task<ProductDto> GetByIdAsync(Guid productId)
@@ -25,5 +33,7 @@ namespace Potato.Product.Application.AppServices
 
             return await _productServices.AddAsync(productDto);
         }
+
+
     }
 }

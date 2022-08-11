@@ -16,6 +16,8 @@
             //this.url = url;
             SKU = sKU;
             Price = price;
+            OnCreated = DateOnly.FromDateTime(DateTime.UtcNow);
+            OnModified = DateTime.UtcNow;
         }
 
         public Guid Id { get; init; }
