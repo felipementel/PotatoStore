@@ -61,6 +61,6 @@ public class ProductController : ControllerBase
     {
         var retorno = await _productAppService.GetAllAsync();
 
-        return Ok(retorno);
+        return retorno.Any() ? Ok(retorno) : NotFound();
     }
 }
