@@ -51,9 +51,10 @@ builder.Services.AddDbContext<ProductContext>(p =>
                 maxRetryDelay: TimeSpan.FromSeconds(5),
                 errorCodesToAdd: null);
         });
+    p.EnableSensitiveDataLogging();
     p.UseQueryTrackingBehavior(Microsoft.EntityFrameworkCore.QueryTrackingBehavior.TrackAll);
     p.EnableDetailedErrors();
-    p.EnableThreadSafetyChecks();
+    //p.EnableThreadSafetyChecks();
 });
 
 

@@ -40,7 +40,8 @@ namespace Potato.Product.Infra.Database.Repositories
 
         public async Task<Domain.Aggregates.Products.Entities.Product> UpdateAsync(Domain.Aggregates.Products.Entities.Product product)
         {
-            _productContext.Products.Update(product);
+            _productContext.Entry(product).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+
             await _productContext.SaveChangesAsync();
 
             return product;

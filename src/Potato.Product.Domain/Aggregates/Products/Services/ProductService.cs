@@ -27,13 +27,19 @@ namespace Potato.Product.Domain.Aggregates.Products.Services
             var item = await _productRepository.GetByIdAsync(productId);
 
             if (item != null)
-            {                
-                return await _productRepository.UpdateAsync(product with
-                { 
+            {
+                var updatedProduct = item with
+                {
+                    //Id = product.Id
                     Name = product.Name,
                     Description = product.Description,
-                    Price = product.Price                    
-                });
+                    Price = product.Price,
+                    SKU = product.SKU,
+                    OnCreated = product.OnCreated,
+                    OnModified = product.OnModified
+                };
+
+                return await _productRepository.UpdateAsync(updatedProduct);
             }
 
             return item;
