@@ -50,4 +50,17 @@ public class ProductController : ControllerBase
 
         return Ok();
     }
+
+    [HttpPut("{productId}")]
+    [MapToApiVersion("1.0")]
+    [Produces("application/json")]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<IActionResult> UpdateProductAsync(Guid productId, [FromBody] ProductDto productDto)
+    {
+        var item = await _productAppService.UpdateAsync(productId, productDto);
+
+        return item is null ? NotFound() : Ok(item);
+    }
 }

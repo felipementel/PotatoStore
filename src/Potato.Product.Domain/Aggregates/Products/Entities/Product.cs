@@ -1,19 +1,19 @@
 ﻿namespace Potato.Product.Domain.Aggregates.Products.Entities
 {
-    public class Product
+    public record class Product
     {
         public Product(
             Guid id,
             string name,
             string description,
-            //URL url,
+            URL url,
             string sKU,
             decimal price)
         {
             Id = id;
             Name = name;
             Description = description;
-            //this.url = url;
+            this.url = url;
             SKU = sKU;
             Price = price;
         }
@@ -24,7 +24,7 @@
 
         public string Description { get; init; }
 
-        //public URL url { get; init; }
+        public URL url { get; init; }
 
         public string SKU { get; init; }
 

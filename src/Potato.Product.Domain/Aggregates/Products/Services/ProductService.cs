@@ -21,5 +21,17 @@ namespace Potato.Product.Domain.Aggregates.Products.Services
         {
             return await _productRepository.GetByIdAsync(productId);
         }
+
+        public async Task<Entities.Product> UpdateAsync(Guid productId, Entities.Product product)
+        {
+            var item = await _productRepository.GetByIdAsync(productId);
+
+            if (item != null)
+            {
+                return await _productRepository.UpdateAsync(product);
+            }
+
+            return item;
+        }
     }
 }

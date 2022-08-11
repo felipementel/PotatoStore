@@ -38,9 +38,12 @@ namespace Potato.Product.Infra.Database.Repositories
             throw new NotImplementedException();
         }
 
-        public Task UpdateAsync(Guid id, Domain.Aggregates.Products.Entities.Product product)
+        public async Task<Domain.Aggregates.Products.Entities.Product> UpdateAsync(Domain.Aggregates.Products.Entities.Product product)
         {
-            throw new NotImplementedException();
+            _productContext.Products.Update(product);
+            await _productContext.SaveChangesAsync();
+
+            return product;
         }
     }
 }
