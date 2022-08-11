@@ -14,7 +14,7 @@ namespace PotatoStore.Base.Test
                     p.Random.Guid(),
                     p.Commerce.ProductName(),
                     p.Commerce.ProductDescription(),
-                    p.Internet.Url(),
+                    //p.Internet.Url(),
                     p.Random.Digits(6, 6).ToString(),
                     p.Random.Decimal(1, 5),
                     p.Date.RecentDateOnly(),
@@ -34,7 +34,7 @@ namespace PotatoStore.Base.Test
                     p.Random.Guid(),
                     p.Commerce.ProductName(),
                     p.Commerce.ProductDescription(),
-                    new URL(p.Internet.Url()),
+                   // new URL(p.Internet.Url()),
                     p.Random.Digits(6, 6).ToString(),
                     p.Random.Decimal(1, 5)))
                 .FinishWith((f, u) =>
