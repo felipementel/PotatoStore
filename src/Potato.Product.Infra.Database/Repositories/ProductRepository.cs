@@ -1,4 +1,5 @@
-﻿using Potato.Product.Domain.Aggregates.Products.Interfaces.Repositories;
+﻿using Microsoft.EntityFrameworkCore;
+using Potato.Product.Domain.Aggregates.Products.Interfaces.Repositories;
 
 namespace Potato.Product.Infra.Database.Repositories
 {
@@ -21,14 +22,14 @@ namespace Potato.Product.Infra.Database.Repositories
 
         public async Task<IEnumerable<Domain.Aggregates.Products.Entities.Product>> GetAllAsync()
         {
-            return _productContext.Products.ToList();
+            return await _productContext.Products.ToListAsync();
         }
 
         public async Task<Domain.Aggregates.Products.Entities.Product> GetByIdAsync(Guid id)
         {
-            var item = _productContext.Products.FirstOrDefault(p => p.Id == id);
+            var item = await _productContext.Products.FirstOrDefaultAsync(p => p.Id == id);
 
-            return item;
+            return item!;
 
             //TODO (Luis): Revisar metodo assincrono
         }

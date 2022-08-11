@@ -33,7 +33,7 @@ public class ProductController : ControllerBase
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> GetById(Guid productId)
     {
-        var retorno = _productAppService.GetByIdAsync(productId);
+        var retorno = await _productAppService.GetByIdAsync(productId);
 
         return Ok(retorno);
     }
