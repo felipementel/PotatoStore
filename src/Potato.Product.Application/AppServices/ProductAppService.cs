@@ -25,10 +25,9 @@ namespace Potato.Product.Application.AppServices
 
             return await _productServices.AddAsync(productDto);
         }
-
-        public async Task DeleteAsync(Guid productId) 
+        public async Task DeleteAsync(Guid productId)
         {
-
+            await _productServices.DeleteAsync(productId);
         }
     }
 }
