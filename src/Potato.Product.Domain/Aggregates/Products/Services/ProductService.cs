@@ -17,6 +17,11 @@ namespace Potato.Product.Domain.Aggregates.Products.Services
             return await _productRepository.AddAsync(product);
         }
 
+        public async Task<IEnumerable<Entities.Product>> GetAllAsync()
+        {
+            return await _productRepository.GetAllAsync();
+        }
+
         public async Task<Entities.Product> GetByIdAsync(Guid productId)
         {
             return await _productRepository.GetByIdAsync(productId);
@@ -25,6 +30,7 @@ namespace Potato.Product.Domain.Aggregates.Products.Services
         public async Task DeleteAsync(Guid productId)
         {
             var entity = await _productRepository.GetByIdAsync(productId);
+            //TODO(Kleber): checkar se entity é nulo e dar return
             await _productRepository.RemoveAsync(entity);
         }
     }

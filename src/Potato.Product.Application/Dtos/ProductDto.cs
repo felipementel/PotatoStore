@@ -47,7 +47,8 @@ namespace Potato.Product.Application.Dtos
                 dto.Description,
                 //url: new Domain.Aggregates.Products.Entities.URL { Endereco = dto.URL },
                 sKU: dto.SKU,
-                price: dto.Price);
+                price: dto.Price
+                );
 
         public static implicit operator ProductDto(Domain.Aggregates.Products.Entities.Product entity) =>
            new (entity.Id,

@@ -1,5 +1,8 @@
 
 # PotatoStore
+
+[![.NET](https://github.com/felipementel/PotatoStore/actions/workflows/dotnet-estudo.yml/badge.svg?branch=main)](https://github.com/felipementel/PotatoStore/actions/workflows/dotnet-estudo.yml)
+
 This project was created by Avanade Team to study
 
 Commands to create a project

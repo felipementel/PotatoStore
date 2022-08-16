@@ -33,7 +33,7 @@ public class ProductController : ControllerBase
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> GetById(Guid productId)
     {
-        var retorno = _productAppService.GetByIdAsync(productId);
+        var retorno = await _productAppService.GetByIdAsync(productId);
 
         return Ok(retorno);
     }
@@ -55,5 +55,18 @@ public class ProductController : ControllerBase
     public async Task DeleteAsync(Guid productId) 
     {
         await _productAppService.DeleteAsync(productId);
+    }
+
+    [HttpGet]
+    [MapToApiVersion("1.0")]
+    [Produces("application/json")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<IActionResult> GetAllAsync()
+    {
+        var retorno = await _productAppService.GetAllAsync();
+
+        return retorno.Any() ? Ok(retorno) : NotFound();
     }
 }
