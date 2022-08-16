@@ -30,7 +30,7 @@ namespace Potato.Product.Domain.Aggregates.Products.Services
         public async Task DeleteAsync(Guid productId)
         {
             var entity = await _productRepository.GetByIdAsync(productId);
-            //TODO(LR): checkar se entity é nulo e dar return
+            //TODO(Kleber): checkar se entity é nulo e dar return
             await _productRepository.RemoveAsync(entity);
         }
     }
