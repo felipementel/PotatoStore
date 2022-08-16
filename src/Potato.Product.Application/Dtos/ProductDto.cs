@@ -30,7 +30,7 @@ namespace Potato.Product.Application.Dtos
 
         public string Description { get; set; }
 
-        //public string URL { get; set; }
+        public string URL { get; set; }
 
         public string SKU { get; set; }
 
