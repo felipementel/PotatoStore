@@ -7,6 +7,7 @@
         Task<Entities.Product> GetByIdAsync(Guid productId);
 
         Task DeleteAsync(Guid productId);
+        Task<bool> DeleteAsyncWithReturn(Guid productId);
 
         Task<IEnumerable<Entities.Product>> GetAllAsync();
     }

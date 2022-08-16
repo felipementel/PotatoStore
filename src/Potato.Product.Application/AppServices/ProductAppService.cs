@@ -37,5 +37,10 @@ namespace Potato.Product.Application.AppServices
         {
             await _productServices.DeleteAsync(productId);
         }
+
+        public async Task<bool> DeleteAsyncWithReturn(Guid productId)
+        {
+            return await _productServices.DeleteAsyncWithReturn(productId);
+        }
     }
 }

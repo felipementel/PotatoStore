@@ -52,9 +52,11 @@ public class ProductController : ControllerBase
     }
 
     [HttpDelete("{productId}")]
-    public async Task DeleteAsync(Guid productId) 
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> DeleteAsync(Guid productId) 
     {
-        await _productAppService.DeleteAsync(productId);
+        var retorno = await _productAppService.DeleteAsyncWithReturn(productId);
+        return retorno? Ok() : BadRequest("ID Inválido: " + productId);
     }
 
     [HttpGet]

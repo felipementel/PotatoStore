@@ -11,5 +11,8 @@ namespace Potato.Product.Application.Interfaces.Services
         Task<IEnumerable<ProductDto>> GetAllAsync();
 
         Task DeleteAsync(Guid productId);
+
+        Task<bool> DeleteAsyncWithReturn(Guid productId);
+        
     }
 }

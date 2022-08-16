@@ -33,5 +33,16 @@ namespace Potato.Product.Domain.Aggregates.Products.Services
             //TODO(Kleber): checkar se entity é nulo e dar return
             await _productRepository.RemoveAsync(entity);
         }
+
+        public async Task<bool> DeleteAsyncWithReturn(Guid productId)
+        {
+
+            var entity = await _productRepository.GetByIdAsync(productId);
+            if (entity == null)
+                return false;
+
+            await _productRepository.RemoveAsync(entity);
+            return true;
+        }
     }
 }
