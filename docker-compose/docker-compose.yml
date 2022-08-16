@@ -1,0 +1,35 @@
+version: '3.1'
+
+services:
+  potato-sonarqube:
+    image: sonarqube:9.4.0-developer
+    restart: always
+    container_name: sonarqube-potato
+    ports:
+      - 9044:9000
+
+  potato-postgres:
+    image: postgres:14.2-alpine
+    restart: always
+    container_name: potato-postgres
+    environment:
+      POSTGRES_PASSWORD: example
+      POSTGRES_USER: user01
+      POSTGRES_DB: PotatoDatabse
+    networks:
+     - potato-net
+  
+  potato-adminer:
+    image: adminer:4.8.1-standalone
+    container_name: adminer-potato
+    restart: always
+    ports:
+      - 9045:8080
+    depends_on:
+      - potato-postgres
+    networks:
+     - potato-net
+
+networks:
+  potato-net:
+    driver: bridge
