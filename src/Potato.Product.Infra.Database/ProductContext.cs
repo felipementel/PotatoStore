@@ -10,7 +10,7 @@ namespace Potato.Product.Infra.Database
         {
         }
 
-        public DbSet<Domain.Aggregates.Products.Entities.Product> Products { get; set; }
+        public DbSet<Domain.Aggregates.Products.Entities.Product>? Products { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

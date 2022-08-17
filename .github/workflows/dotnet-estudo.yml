@@ -2,13 +2,20 @@ name: .NET
 
 on:
   push:
+    paths:
+      - 'src/**'
     branches: [ "main" ]
   pull_request:
+    paths:
+      - 'src/**'
     branches: [ "main" ]
+
+  workflow_dispatch:
+
 
 defaults:
   run:
-    working-directory: src    
+    working-directory: src
 
 jobs:
   build:
@@ -21,7 +28,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 6.0.301
         
     - name: Restore dependencies
       run: dotnet restore

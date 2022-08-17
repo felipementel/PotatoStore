@@ -6,6 +6,8 @@
 
         Task<Entities.Product> GetByIdAsync(Guid productId);
 
+        Task<IEnumerable<Entities.Product>> GetAllAsync();
+
         Task<Entities.Product> UpdateAsync(Guid productId, Entities.Product product);
     }
 }
