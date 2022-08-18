@@ -1,6 +1,4 @@
-﻿
-
-namespace Potato.Product.Domain.Aggregates.Products.Interfaces.Services
+﻿namespace Potato.Product.Domain.Aggregates.Products.Interfaces.Services
 {
     public interface IProductService
     {

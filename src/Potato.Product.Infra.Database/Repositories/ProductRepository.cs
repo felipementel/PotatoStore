@@ -35,6 +35,8 @@ namespace Potato.Product.Infra.Database.Repositories
             }
 
             return item!;
+
+            //TODO (Luis): Revisar metodo assincrono
         }
 
         public Task RemoveAsync(Guid id)
