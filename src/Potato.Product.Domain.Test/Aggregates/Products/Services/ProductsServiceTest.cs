@@ -20,14 +20,14 @@ namespace Potato.Product.Domain.Test.Aggregates.Products.Services
             //Arrenge
             var products = new List<Domain.Aggregates.Products.Entities.Product>()
             {
-                new Domain.Aggregates.Products.Entities.Product(Guid.NewGuid(), "Geladeira", "Geladeira 410L", "SKU012", 3000)
-
+                new (Guid.NewGuid(), "Geladeira", "Geladeira 410L", "SKU012", 3000)
             };
 
             _productRepository.Setup(x => x.GetAllAsync()).ReturnsAsync(products);
+            var productService = new ProductService(_productRepository.Object);
 
             //Act
-            var result = await new ProductService(_productRepository.Object).GetAllAsync();
+            var result = await productService.GetAllAsync();
 
             //Assert
             _productRepository.Verify(x => x.GetAllAsync(), Times.Once());
@@ -38,15 +38,13 @@ namespace Potato.Product.Domain.Test.Aggregates.Products.Services
         public async Task Should_Returns_Product_List_Empty()
         {
             //Arrenge
-            var products = new List<Domain.Aggregates.Products.Entities.Product>()
-            {
-
-            };
+            var products = new List<Domain.Aggregates.Products.Entities.Product>(){};
 
             _productRepository.Setup(x => x.GetAllAsync()).ReturnsAsync(products);
+            var productService = new ProductService(_productRepository.Object);
 
             //Act
-            var result = await new ProductService(_productRepository.Object).GetAllAsync();
+            var result = await productService.GetAllAsync();
 
             //Assert
             _productRepository.Verify(x => x.GetAllAsync(), Times.Once());
