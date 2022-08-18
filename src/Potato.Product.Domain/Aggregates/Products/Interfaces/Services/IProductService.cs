@@ -9,5 +9,7 @@ namespace Potato.Product.Domain.Aggregates.Products.Interfaces.Services
         Task<Entities.Product> GetByIdAsync(Guid productId);
 
         Task<Entities.Product> PatchAsync(Guid productId, Entities.Product product);
+
+        Task<IEnumerable<Entities.Product>> GetAllAsync();
     }
 }

@@ -1,6 +1,5 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
+using Potato.Product.Api.Converters;
 using Potato.Product.Application.AppServices;
 using Potato.Product.Application.Interfaces.Services;
 using Potato.Product.Domain.Aggregates.Products.Interfaces.Repositories;
@@ -12,6 +11,9 @@ using Potato.Product.Infra.Database.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services
+       .AddControllers()
+       .AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new DateOnlyConverter()));
 
 //builder.Services.AddControllers();
 builder.Services.AddControllers().AddNewtonsoftJson();

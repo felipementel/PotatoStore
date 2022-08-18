@@ -1,4 +1,5 @@
-﻿using Potato.Product.Domain.Aggregates.Products.Interfaces.Repositories;
+﻿using Microsoft.EntityFrameworkCore;
+using Potato.Product.Domain.Aggregates.Products.Interfaces.Repositories;
 
 namespace Potato.Product.Infra.Database.Repositories
 {
@@ -13,27 +14,27 @@ namespace Potato.Product.Infra.Database.Repositories
 
         public async Task<Domain.Aggregates.Products.Entities.Product> AddAsync(Domain.Aggregates.Products.Entities.Product product)
         {
-            await _productContext.Products.AddAsync(product);
+            await _productContext.Products!.AddAsync(product);
             await _productContext.SaveChangesAsync();
 
             return product;
         }
 
-        public Task<IEnumerable<Domain.Aggregates.Products.Entities.Product>> GetAllAsync()
+        public async Task<IEnumerable<Domain.Aggregates.Products.Entities.Product>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _productContext.Products?.ToListAsync()!;
         }
 
         public async Task<Domain.Aggregates.Products.Entities.Product> GetByIdAsync(Guid id)
         {
-            var item = _productContext.Products.FirstOrDefault(p => p.Id == id);
+            var item = await _productContext.Products?.FirstOrDefaultAsync(p => p.Id == id)!;
 
             if(item != null)
             {
                 _productContext.Entry(item).State = Microsoft.EntityFrameworkCore.EntityState.Detached;
             }
 
-            return item;
+            return item!;
         }
 
         public Task RemoveAsync(Guid id)
