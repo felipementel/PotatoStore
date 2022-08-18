@@ -16,13 +16,13 @@ namespace Potato.Product.Api.Test.Controllers
 {
     public  class ProductControllerTest
     {
-        private readonly Mock<ILogger<ProductController>> _logger;
-        public readonly Mock<IProductAppService> _productAppService;
+        private readonly Mock<ILogger<ProductController>> _loggerMock;
+        public readonly Mock<IProductAppService> _productAppServiceMock;
 
         public ProductControllerTest()
         {
-            _logger = new Mock<ILogger<ProductController>>();
-            _productAppService = new Mock<IProductAppService>();
+            _loggerMock = new Mock<ILogger<ProductController>>();
+            _productAppServiceMock = new Mock<IProductAppService>();
         }
 
         [Fact]
@@ -34,8 +34,8 @@ namespace Potato.Product.Api.Test.Controllers
                 new (Guid.NewGuid(), "Geladeira", "Geladeira 410L", "SKU012", 3000,DateOnly.FromDateTime(DateTime.UtcNow),DateTime.UtcNow),
                 new (Guid.NewGuid(), "Fogao", "Fogao 4 bocas", "SKU013", 556.50M,DateOnly.FromDateTime(DateTime.UtcNow),DateTime.UtcNow)
             };
-            _productAppService.Setup(x => x.GetAllAsync()).ReturnsAsync(products);
-            var productAppService = new ProductController(_logger.Object, _productAppService.Object);
+            _productAppServiceMock.Setup(x => x.GetAllAsync()).ReturnsAsync(products);
+            var productAppService = new ProductController(_loggerMock.Object, _productAppServiceMock.Object);
 
             //Act
             var result = await productAppService.GetAllAsync();
@@ -54,8 +54,8 @@ namespace Potato.Product.Api.Test.Controllers
                 new (Guid.NewGuid(), "Geladeira", "Geladeira 410L", "SKU012", 3000,DateOnly.FromDateTime(DateTime.UtcNow),DateTime.UtcNow),
                 new (Guid.NewGuid(), "Fogao", "Fogao 4 bocas", "SKU013", 556.50M,DateOnly.FromDateTime(DateTime.UtcNow),DateTime.UtcNow)
             };
-            _productAppService.Setup(x => x.GetAllAsync()).ReturnsAsync(products);
-            var productAppService = new ProductController(_logger.Object, _productAppService.Object);
+            _productAppServiceMock.Setup(x => x.GetAllAsync()).ReturnsAsync(products);
+            var productAppService = new ProductController(_loggerMock.Object, _productAppServiceMock.Object);
 
             //Act
             var result = await productAppService.GetAllAsync();
@@ -69,8 +69,8 @@ namespace Potato.Product.Api.Test.Controllers
         {
             //Arrenge
             var products = new List<ProductDto>(){};
-            _productAppService.Setup(x => x.GetAllAsync()).ReturnsAsync(products);
-            var productAppService = new ProductController(_logger.Object, _productAppService.Object);
+            _productAppServiceMock.Setup(x => x.GetAllAsync()).ReturnsAsync(products);
+            var productAppService = new ProductController(_loggerMock.Object, _productAppServiceMock.Object);
 
             //Act
             var result = await productAppService.GetAllAsync();

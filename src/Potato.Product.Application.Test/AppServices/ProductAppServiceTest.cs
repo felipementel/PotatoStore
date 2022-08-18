@@ -7,11 +7,11 @@ namespace Potato.Product.Application.Test.AppServices
 {
     public class ProductAppServiceTest
     {
-        private readonly Mock<IProductService> _productServices;
+        private readonly Mock<IProductService> _productServicesMock;
 
         public ProductAppServiceTest()
         {
-            _productServices = new Mock<IProductService>();
+            _productServicesMock = new Mock<IProductService>();
         }
 
         [Fact]
@@ -24,14 +24,14 @@ namespace Potato.Product.Application.Test.AppServices
                 new (Guid.NewGuid(), "Fogao", "Fogao 4 bocas", "SKU013", 556.50M)
             };
 
-            _productServices.Setup(x => x.GetAllAsync()).ReturnsAsync(products);
-            var productAppService = new ProductAppService(_productServices.Object);
+            _productServicesMock.Setup(x => x.GetAllAsync()).ReturnsAsync(products);
+            var productAppService = new ProductAppService(_productServicesMock.Object);
 
             //Act
             var result = await productAppService.GetAllAsync();
 
             //Assert
-            _productServices.Verify(x => x.GetAllAsync(), Times.Once());
+            _productServicesMock.Verify(x => x.GetAllAsync(), Times.Once());
             result.ToList().Count.Should().Be(2);
         }
 
@@ -39,17 +39,17 @@ namespace Potato.Product.Application.Test.AppServices
         public async Task Should_Returns_Product_List_Empty()
         {
             //Arrenge
-            var products = new List<Domain.Aggregates.Products.Entities.Product>(){};
+            var products = new List<Domain.Aggregates.Products.Entities.Product>() { };
 
-            _productServices.Setup(x => x.GetAllAsync()).ReturnsAsync(products);
-            var productAppService = new ProductAppService(_productServices.Object);
+            _productServicesMock.Setup(x => x.GetAllAsync()).ReturnsAsync(products);
+            var productAppService = new ProductAppService(_productServicesMock.Object);
+
             //Act
             var result = await productAppService.GetAllAsync();
 
             //Assert
-            _productServices.Verify(x => x.GetAllAsync(), Times.Once());
+            _productServicesMock.Verify(x => x.GetAllAsync(), Times.Once());
             result.ToList().Count.Should().Be(0);
         }
-
     }
 }

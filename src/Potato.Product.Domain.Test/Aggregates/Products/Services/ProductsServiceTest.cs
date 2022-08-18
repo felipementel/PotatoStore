@@ -2,16 +2,17 @@
 using Moq;
 using Potato.Product.Domain.Aggregates.Products.Interfaces.Repositories;
 using Potato.Product.Domain.Aggregates.Products.Services;
+using Xunit;
 
 namespace Potato.Product.Domain.Test.Aggregates.Products.Services
 {
     public class ProductsServiceTest
     {
-        private readonly Mock<IProductRepository> _productRepository;
+        private readonly Mock<IProductRepository> _productRepositoryMock;
 
         public ProductsServiceTest()
         {
-            _productRepository = new Mock<IProductRepository>();
+            _productRepositoryMock = new Mock<IProductRepository>();
         }
 
         [Fact]
@@ -23,14 +24,14 @@ namespace Potato.Product.Domain.Test.Aggregates.Products.Services
                 new (Guid.NewGuid(), "Geladeira", "Geladeira 410L", "SKU012", 3000)
             };
 
-            _productRepository.Setup(x => x.GetAllAsync()).ReturnsAsync(products);
-            var productService = new ProductService(_productRepository.Object);
+            _productRepositoryMock.Setup(x => x.GetAllAsync()).ReturnsAsync(products);
+            var productService = new ProductService(_productRepositoryMock.Object);
 
             //Act
             var result = await productService.GetAllAsync();
 
             //Assert
-            _productRepository.Verify(x => x.GetAllAsync(), Times.Once());
+            _productRepositoryMock.Verify(x => x.GetAllAsync(), Times.Once());
             result.ToList().Count.Should().Be(1);
         }
 
@@ -40,14 +41,14 @@ namespace Potato.Product.Domain.Test.Aggregates.Products.Services
             //Arrenge
             var products = new List<Domain.Aggregates.Products.Entities.Product>(){};
 
-            _productRepository.Setup(x => x.GetAllAsync()).ReturnsAsync(products);
-            var productService = new ProductService(_productRepository.Object);
+            _productRepositoryMock.Setup(x => x.GetAllAsync()).ReturnsAsync(products);
+            var productService = new ProductService(_productRepositoryMock.Object);
 
             //Act
             var result = await productService.GetAllAsync();
 
             //Assert
-            _productRepository.Verify(x => x.GetAllAsync(), Times.Once());
+            _productRepositoryMock.Verify(x => x.GetAllAsync(), Times.Once());
             result.ToList().Count.Should().Be(0);
         }
     }
