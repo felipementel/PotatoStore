@@ -32,9 +32,7 @@ namespace Potato.Product.Infra.Database.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    //b.Property<string>("Description2")
-                    //    .IsRequired()
-                    //    .HasColumnType("text");
+                    
 
                     b.Property<string>("Name")
                         .IsRequired()
