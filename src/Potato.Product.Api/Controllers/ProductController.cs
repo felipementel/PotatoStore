@@ -51,6 +51,16 @@ public class ProductController : ControllerBase
         return Ok();
     }
 
+    [HttpDelete("{productId}")]
+    [Produces("application/json")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> DeleteAsync(Guid productId)
+    {
+        var retorno = await _productAppService.DeleteAsync(productId);
+        return retorno ? NoContent() : BadRequest($"ID Inválido: {productId}");
+    }
+
     [HttpGet]
     [MapToApiVersion("1.0")]
     [Produces("application/json")]
