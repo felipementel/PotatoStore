@@ -28,6 +28,11 @@ namespace Potato.Product.Infra.Database.Repositories
         {
             var item = _productContext.Products.FirstOrDefault(p => p.Id == id);
 
+            if(item != null)
+            {
+                _productContext.Entry(item).State = Microsoft.EntityFrameworkCore.EntityState.Detached;
+            }
+
             return item;
         }
 
@@ -41,9 +46,12 @@ namespace Potato.Product.Infra.Database.Repositories
             throw new NotImplementedException();
         }
 
-        public Task PartialUpdateAsync()
+        public async Task<Domain.Aggregates.Products.Entities.Product> PartialUpdateAsync(Guid id, Domain.Aggregates.Products.Entities.Product product)
         {
-            throw new NotImplementedException();
+            _productContext.Products.Update(product);
+            await _productContext.SaveChangesAsync();
+
+            return product;
         }
     }
 }

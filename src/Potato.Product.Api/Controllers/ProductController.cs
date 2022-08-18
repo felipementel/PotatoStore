@@ -1,6 +1,10 @@
+using AutoMapper;
+using AutoMapper.Internal.Mappers;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Potato.Product.Application.Dtos;
 using Potato.Product.Application.Interfaces.Services;
+
 
 namespace Potato.Product.Api.Controllers;
 
@@ -50,14 +54,23 @@ public class ProductController : ControllerBase
         return Ok();
     }
 
-    [HttpPatch]
+    [HttpPatch("{productId}")]
     [MapToApiVersion("1.0")]
     [Produces("application/json")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> UpdateProduct([FromBody] ProductDto productDto)
+    public async Task<IActionResult> UpdateProduct(Guid productId, [FromBody] JsonPatchDocument<ProductDto> patchProduct)
     {
-        return Ok();
+        var entity = await _productAppService.GetByIdAsync(productId);
+
+        if (entity == null)
+        {
+            return NotFound();
+        }
+        
+        patchProduct.ApplyTo(entity, ModelState);
+
+        return Ok(await _productAppService.PatchAsync(productId, entity));
     }
 }

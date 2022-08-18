@@ -22,9 +22,9 @@ namespace Potato.Product.Domain.Aggregates.Products.Services
             return await _productRepository.GetByIdAsync(productId);
         }
 
-        public async Task<Entities.Product> PatchAsync(Entities.Product product)
+        public async Task<Entities.Product> PatchAsync(Guid id, Entities.Product product)
         {
-            return await _productRepository.AddAsync(product);
+            return await _productRepository.PartialUpdateAsync(id, product);
         }
     }
 }

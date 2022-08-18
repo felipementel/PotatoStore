@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using Potato.Product.Application.AppServices;
@@ -12,7 +13,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+//builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddApiVersioning(
     options =>
     {
@@ -55,7 +57,6 @@ builder.Services.AddDbContext<ProductContext>(p =>
     p.EnableDetailedErrors();
     p.EnableThreadSafetyChecks();
 });
-
 
 var app = builder.Build();
 

@@ -25,9 +25,10 @@ namespace Potato.Product.Application.AppServices
             return await _productServices.AddAsync(productDto);
         }
 
-        public async Task<ProductDto> PatchAsync(ProductDto productDto)
+        public async Task<ProductDto> PatchAsync(Guid id, ProductDto productDto)
         {
-            return await _productServices.PatchAsync(productDto);
+            return await _productServices.PatchAsync(id, productDto);
         }
+
     }
 }

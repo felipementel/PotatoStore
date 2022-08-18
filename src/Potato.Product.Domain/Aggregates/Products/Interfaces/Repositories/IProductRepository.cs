@@ -11,5 +11,7 @@
         Task<Entities.Product> GetByIdAsync(Guid id);
 
         Task<IEnumerable<Entities.Product>> GetAllAsync();
+
+        Task<Entities.Product> PartialUpdateAsync(Guid id, Entities.Product product);
     }
 }
