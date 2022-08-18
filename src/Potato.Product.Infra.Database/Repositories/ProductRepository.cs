@@ -31,7 +31,7 @@ namespace Potato.Product.Infra.Database.Repositories
 
             return item!;
 
-            //TODO (Luis): Revisar metodo assincrono
+           
         }
 
         public async Task RemoveAsync(Potato.Product.Domain.Aggregates.Products.Entities.Product product)

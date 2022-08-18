@@ -56,7 +56,7 @@ public class ProductController : ControllerBase
     public async Task<IActionResult> DeleteAsync(Guid productId) 
     {
         var retorno = await _productAppService.DeleteAsyncWithReturn(productId);
-        return retorno? Ok() : BadRequest("ID Inválido: " + productId);
+        return retorno? NoContent() : BadRequest($"ID Inválido: {productId}" );
     }
 
     [HttpGet]
