@@ -6,7 +6,7 @@
 
         Task<Entities.Product> GetByIdAsync(Guid productId);
 
-        Task<Entities.Product> PatchAsync(Guid productId, Entities.Product product);
+        Task<Entities.Product> PatchAsync(Entities.Product product);
 
         Task<bool> DeleteAsync(Guid productId);
 

@@ -27,9 +27,9 @@ namespace Potato.Product.Domain.Aggregates.Products.Services
             return await _productRepository.GetByIdAsync(productId);
         }
 
-        public async Task<Entities.Product> PatchAsync(Guid id, Entities.Product product)
+        public async Task<Entities.Product> PatchAsync(Entities.Product product)
         {
-            return await _productRepository.PatchAsync(id, product);
+            return await _productRepository.PatchAsync(product);
         }
 
         public async Task<bool> DeleteAsync(Guid productId)

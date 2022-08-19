@@ -45,7 +45,7 @@ namespace Potato.Product.Infra.Database.Repositories
             throw new NotImplementedException();
         }
 
-        public async Task<Domain.Aggregates.Products.Entities.Product> PatchAsync(Guid id, Domain.Aggregates.Products.Entities.Product product)
+        public async Task<Domain.Aggregates.Products.Entities.Product> PatchAsync(Domain.Aggregates.Products.Entities.Product product)
         {
             _productContext.Products.Update(product);
             await _productContext.SaveChangesAsync();

@@ -1,7 +1,6 @@
 ﻿using Potato.Product.Application.Dtos;
 using Potato.Product.Application.Interfaces.Services;
 using Potato.Product.Domain.Aggregates.Products.Interfaces.Services;
-using System.Linq;
 
 namespace Potato.Product.Application.AppServices
 {
@@ -33,9 +32,9 @@ namespace Potato.Product.Application.AppServices
             return await _productServices.AddAsync(productDto);
         }
 
-        public async Task<ProductDto> PatchAsync(Guid id, ProductDto productDto)
+        public async Task<ProductDto> PatchAsync(ProductDto productDto)
         {
-            return await _productServices.PatchAsync(id, productDto);
+            return await _productServices.PatchAsync(productDto);
         }
 
         public async Task<bool> DeleteAsync(Guid productId)

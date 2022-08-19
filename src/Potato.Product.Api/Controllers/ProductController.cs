@@ -68,7 +68,7 @@ public class ProductController : ControllerBase
         }
 
         patchProduct.ApplyTo(entity, ModelState);
-        var retorno = await _productAppService.PatchAsync(productId, entity);
+        var retorno = await _productAppService.PatchAsync(entity);
 
         return Ok(retorno);
     }
