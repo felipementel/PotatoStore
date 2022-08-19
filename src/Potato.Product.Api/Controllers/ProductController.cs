@@ -55,7 +55,7 @@ public class ProductController : ControllerBase
     [HttpPatch("{productId}")]
     [MapToApiVersion("1.0")]
     [Produces("application/json")]
-    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> UpdateProduct(Guid productId, [FromBody] JsonPatchDocument<ProductDto> patchProduct)
@@ -68,8 +68,9 @@ public class ProductController : ControllerBase
         }
 
         patchProduct.ApplyTo(entity, ModelState);
+        var retorno = await _productAppService.PatchAsync(productId, entity);
 
-        return Ok(await _productAppService.PatchAsync(productId, entity));
+        return Ok(retorno);
     }
 
     [HttpGet]
