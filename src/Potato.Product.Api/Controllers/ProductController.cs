@@ -1,5 +1,3 @@
-using AutoMapper;
-using AutoMapper.Internal.Mappers;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Potato.Product.Application.Dtos;

@@ -60,6 +60,4 @@ namespace Potato.Product.Application.Dtos
                 entity.OnCreated,
                 entity.OnModified);
     }
-
-    
 }

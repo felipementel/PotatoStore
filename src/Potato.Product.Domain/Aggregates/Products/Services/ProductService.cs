@@ -29,7 +29,7 @@ namespace Potato.Product.Domain.Aggregates.Products.Services
 
         public async Task<Entities.Product> PatchAsync(Guid id, Entities.Product product)
         {
-            return await _productRepository.PartialUpdateAsync(id, product);
+            return await _productRepository.PatchAsync(id, product);
         }
     }
 }
