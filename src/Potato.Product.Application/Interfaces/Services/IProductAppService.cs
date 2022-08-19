@@ -8,6 +8,8 @@ namespace Potato.Product.Application.Interfaces.Services
 
         Task<ProductDto> GetByIdAsync(Guid productId);
 
+        Task<ProductDto> PatchAsync(Guid id, ProductDto productDto);
+
         Task<IEnumerable<ProductDto>> GetAllAsync();
 
         Task<bool> DeleteAsync(Guid productId);

@@ -8,6 +8,9 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="11.0.1" />
+		<PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="6.0.8" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.8" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
 		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.6" />

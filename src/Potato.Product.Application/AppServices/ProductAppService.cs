@@ -33,10 +33,14 @@ namespace Potato.Product.Application.AppServices
             return await _productServices.AddAsync(productDto);
         }
 
+        public async Task<ProductDto> PatchAsync(Guid id, ProductDto productDto)
+        {
+            return await _productServices.PatchAsync(id, productDto);
         public async Task<ProductDto> UpdateAsync(Guid productId, ProductDto product)
         {
             return await _productServices.UpdateAsync(productId, product);
         }
+
         public async Task<bool> DeleteAsync(Guid productId)
         {
             return await _productServices.DeleteAsync(productId);

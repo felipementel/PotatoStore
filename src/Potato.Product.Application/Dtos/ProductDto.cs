@@ -9,7 +9,7 @@ namespace Potato.Product.Application.Dtos
             string name,
             string description,
             //string url,
-            string sKU, 
+            string sKU,
             decimal price,
             DateOnly onCreated,
             DateTime onModified)
@@ -51,13 +51,14 @@ namespace Potato.Product.Application.Dtos
                 );
 
         public static implicit operator ProductDto(Domain.Aggregates.Products.Entities.Product entity) =>
-           new (entity.Id,
-               entity.Name,
-               entity.Description,
-               //entity.url.Endereco,
-               entity.SKU,
-               entity.Price,
-               entity.OnCreated,
-               entity.OnModified);
+            entity == null ? null :
+            new(entity.Id,
+                entity.Name,
+                entity.Description,
+                //entity.url.Endereco,
+                entity.SKU,
+                entity.Price,
+                entity.OnCreated,
+                entity.OnModified);
     }
 }
