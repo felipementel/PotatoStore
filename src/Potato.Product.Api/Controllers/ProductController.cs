@@ -45,9 +45,9 @@ public class ProductController : ControllerBase
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> CreateProduct([FromBody] ProductDto productDto)
     {
-        await _productAppService.InsertAsync(productDto);
+        var item = await _productAppService.InsertAsync(productDto);
 
-        return Ok();
+        return CreatedAtAction(nameof(GetById), new { productId = item.Id }, item);
     }
 
     [HttpPatch("{productId}")]
