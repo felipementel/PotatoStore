@@ -11,5 +11,7 @@
         Task<Entities.Product> GetByIdAsync(Guid id);
 
         Task<IEnumerable<Entities.Product>> GetAllAsync();
+
+        Task<Entities.Product> PatchAsync(Guid id, Entities.Product product);
     }
 }

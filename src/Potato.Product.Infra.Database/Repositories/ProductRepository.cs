@@ -27,7 +27,7 @@ namespace Potato.Product.Infra.Database.Repositories
 
         public async Task<Domain.Aggregates.Products.Entities.Product> GetByIdAsync(Guid id)
         {
-            var item = await _productContext.Products?.FirstOrDefaultAsync(p => p.Id == id)!;
+            var item = await _productContext.Products?.AsNoTracking().FirstOrDefaultAsync(p => p.Id == id)!;
 
             return item!;
 
@@ -43,6 +43,14 @@ namespace Potato.Product.Infra.Database.Repositories
         public Task UpdateAsync(Guid id, Domain.Aggregates.Products.Entities.Product product)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<Domain.Aggregates.Products.Entities.Product> PatchAsync(Guid id, Domain.Aggregates.Products.Entities.Product product)
+        {
+            _productContext.Products.Update(product);
+            await _productContext.SaveChangesAsync();
+
+            return product;
         }
     }
 }

@@ -1,7 +1,8 @@
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
-using Potato.Product.Application.AppServices;
 using Potato.Product.Application.Dtos;
 using Potato.Product.Application.Interfaces.Services;
+
 
 namespace Potato.Product.Api.Controllers;
 
@@ -51,6 +52,27 @@ public class ProductController : ControllerBase
         return Ok();
     }
 
+    [HttpPatch("{productId}")]
+    [MapToApiVersion("1.0")]
+    [Produces("application/json")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<IActionResult> UpdateProduct(Guid productId, [FromBody] JsonPatchDocument<ProductDto> patchProduct)
+    {
+        var entity = await _productAppService.GetByIdAsync(productId);
+
+        if (entity == null)
+        {
+            return NotFound();
+        }
+
+        patchProduct.ApplyTo(entity, ModelState);
+        var retorno = await _productAppService.PatchAsync(productId, entity);
+
+        return Ok(retorno);
+    }
+
     [HttpDelete("{productId}")]
     [Produces("application/json")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -72,5 +94,6 @@ public class ProductController : ControllerBase
         var retorno = await _productAppService.GetAllAsync();
 
         return retorno.Any() ? Ok(retorno) : NotFound();
+
     }
 }
