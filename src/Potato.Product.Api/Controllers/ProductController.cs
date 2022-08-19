@@ -24,8 +24,6 @@ public class ProductController : ControllerBase
         _productAppService = productAppService;
     }
 
-
-
     [HttpGet("{productId}")]
     [MapToApiVersion("1.0")]
     [Produces("application/json")]
