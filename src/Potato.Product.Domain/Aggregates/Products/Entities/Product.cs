@@ -25,7 +25,7 @@
         public string Name { get; init; }
 
         public string Description { get; init; }
-
+        
         //public URL url { get; init; }
 
         public string SKU { get; init; }

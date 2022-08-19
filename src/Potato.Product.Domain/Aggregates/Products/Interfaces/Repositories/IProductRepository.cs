@@ -6,7 +6,7 @@
 
         Task<Entities.Product> UpdateAsync(Entities.Product product);
 
-        Task RemoveAsync(Guid id);
+        Task RemoveAsync(Entities.Product product);
 
         Task<Entities.Product> GetByIdAsync(Guid id);
 

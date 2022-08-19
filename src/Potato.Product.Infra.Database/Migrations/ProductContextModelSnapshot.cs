@@ -32,6 +32,8 @@ namespace Potato.Product.Infra.Database.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(200)
