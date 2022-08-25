@@ -12,6 +12,6 @@
 
         Task<IEnumerable<Entities.Product>> GetAllAsync();
 
-        Task<Entities.Product> PatchAsync(Entities.Product product);
+        Task<Entities.Product> PartialUpdateAsync(Entities.Product product);
     }
 }
