@@ -15,6 +15,8 @@ builder.Services
        .AddControllers()
        .AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new DateOnlyConverter()));
 
+//builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddApiVersioning(
     options =>
     {
@@ -57,7 +59,6 @@ builder.Services.AddDbContext<ProductContext>(p =>
     p.EnableDetailedErrors();
     p.EnableThreadSafetyChecks();
 });
-
 
 var app = builder.Build();
 

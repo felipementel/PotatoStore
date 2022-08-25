@@ -6,10 +6,12 @@
 
         Task UpdateAsync(Guid id, Entities.Product product);
 
-        Task RemoveAsync(Guid id);
+        Task RemoveAsync(Entities.Product product);
 
         Task<Entities.Product> GetByIdAsync(Guid id);
 
         Task<IEnumerable<Entities.Product>> GetAllAsync();
+
+        Task<Entities.Product> PatchAsync(Guid id, Entities.Product product);
     }
 }
