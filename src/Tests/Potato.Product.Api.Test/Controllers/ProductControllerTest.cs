@@ -26,7 +26,7 @@ namespace Potato.Product.Api.Test.Controllers
         }
 
         [Fact]
-        public async Task Should_Return_All_Items() 
+        public async Task GetAllAsync_HaveItems_ReturnAllItems() 
         {
             //Arrenge
             var products = new List<ProductDto>()
@@ -42,11 +42,11 @@ namespace Potato.Product.Api.Test.Controllers
 
             //Assert
             result.As<OkObjectResult>().Value.Should().BeOfType<List<ProductDto>>();
-            result.As<OkObjectResult>().Value.As<List<ProductDto>>().Count().Should().Be(2);
+            result.As<OkObjectResult>().Value.As<List<ProductDto>>().Count.Should().Be(2);
         }
 
         [Fact]
-        public async Task Should_Return_Status_200Ok()
+        public async Task GetAllAsync_ReturnAllItems_ReturnStatus200Ok()
         {
             //Arrenge
             var products = new List<ProductDto>()
@@ -65,7 +65,7 @@ namespace Potato.Product.Api.Test.Controllers
         }
 
         [Fact]
-        public async Task Should_Return_Status_404NotFound()
+        public async Task GetAllAsync_HasNoItems_ReturnStatus404NotFound()
         {
             //Arrenge
             var products = new List<ProductDto>(){};

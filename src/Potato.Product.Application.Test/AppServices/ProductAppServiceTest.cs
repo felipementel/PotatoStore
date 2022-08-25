@@ -15,7 +15,7 @@ namespace Potato.Product.Application.Test.AppServices
         }
 
         [Fact]
-        public async Task Should_Returns_Product_List()
+        public async Task GetAllAsync_HaveProducts_ReturnsProductsList()
         {
             //Arrenge
             var products = new List<Domain.Aggregates.Products.Entities.Product>()
@@ -36,7 +36,7 @@ namespace Potato.Product.Application.Test.AppServices
         }
 
         [Fact]
-        public async Task Should_Returns_Product_List_Empty()
+        public async Task GetAllAsync_IfProductsListEmpty_ReturnsProductListEmpty()
         {
             //Arrenge
             var products = new List<Domain.Aggregates.Products.Entities.Product>() { };
