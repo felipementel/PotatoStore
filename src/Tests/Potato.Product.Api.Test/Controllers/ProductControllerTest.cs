@@ -46,7 +46,7 @@ namespace Potato.Product.Api.Test.Controllers
         }
 
         [Fact]
-        public async Task GetAllAsync_ReturnAllItems_ReturnStatus200Ok()
+        public async Task GetAllAsync_HaveItems_ReturnStatus200Ok()
         {
             //Arrenge
             var products = new List<ProductDto>()
