@@ -50,7 +50,6 @@ namespace Potato.Product.Domain.Aggregates.Products.Services
             {
                 var updatedProduct = item with
                 {
-                    //Id = product.Id
                     Name = product.Name,
                     Description = product.Description,
                     Price = product.Price,
