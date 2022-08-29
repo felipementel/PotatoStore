@@ -1,6 +1,6 @@
 ﻿namespace Potato.Product.Domain.Aggregates.Products.Entities
 {
-    public class Product
+    public record class Product
     {
         public Product(
             Guid id,

@@ -2,7 +2,7 @@
 
 namespace Potato.Product.Application.Dtos
 {
-    public class ProductDto
+    public record ProductDto
     {
         public ProductDto(
             Guid id,
@@ -30,7 +30,7 @@ namespace Potato.Product.Application.Dtos
 
         public string Description { get; set; }
 
-        public string URL { get; set; }
+        //public string URL { get; set; }
 
         public string SKU { get; set; }
 
@@ -45,7 +45,7 @@ namespace Potato.Product.Application.Dtos
                 id: dto.Id,
                 name: dto.Name,
                 dto.Description,
-                //url: new Domain.Aggregates.Products.Entities.URL { Endereco = dto.URL },
+                //url: new Domain.Aggregates.Products.Entities.URL(dto.URL),
                 sKU: dto.SKU,
                 price: dto.Price
                 );

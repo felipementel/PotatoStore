@@ -14,7 +14,7 @@ using Xunit;
 
 namespace Potato.Product.Api.Test.Controllers
 {
-    public  class ProductControllerTest
+    public class ProductControllerTest
     {
         private readonly Mock<ILogger<ProductController>> _loggerMock;
         public readonly Mock<IProductAppService> _productAppServiceMock;
@@ -26,7 +26,7 @@ namespace Potato.Product.Api.Test.Controllers
         }
 
         [Fact]
-        public async Task GetAllAsync_HaveItems_ReturnAllItems() 
+        public async Task GetAllAsync_HaveItems_ReturnAllItems()
         {
             //Arrenge
             var products = new List<ProductDto>()
@@ -68,7 +68,7 @@ namespace Potato.Product.Api.Test.Controllers
         public async Task GetAllAsync_HasNoItems_ReturnStatus404NotFound()
         {
             //Arrenge
-            var products = new List<ProductDto>(){};
+            var products = new List<ProductDto>() { };
             _productAppServiceMock.Setup(x => x.GetAllAsync()).ReturnsAsync(products);
             var productAppService = new ProductController(_loggerMock.Object, _productAppServiceMock.Object);
 

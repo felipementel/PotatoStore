@@ -24,8 +24,6 @@ public class ProductController : ControllerBase
         _productAppService = productAppService;
     }
 
-
-
     [HttpGet("{productId}")]
     [MapToApiVersion("1.0")]
     [Produces("application/json")]
@@ -47,9 +45,9 @@ public class ProductController : ControllerBase
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> CreateProduct([FromBody] ProductDto productDto)
     {
-        await _productAppService.InsertAsync(productDto);
+        var item = await _productAppService.InsertAsync(productDto);
 
-        return Ok();
+        return CreatedAtAction(nameof(GetById), new { productId = item.Id }, item);
     }
 
     [HttpPatch("{productId}")]
@@ -81,6 +79,19 @@ public class ProductController : ControllerBase
     {
         var retorno = await _productAppService.DeleteAsync(productId);
         return retorno ? NoContent() : BadRequest($"ID Inválido: {productId}");
+    }
+
+    [HttpPut("{productId}")]
+    [MapToApiVersion("1.0")]
+    [Produces("application/json")]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<IActionResult> UpdateProductAsync(Guid productId, [FromBody] ProductDto productDto)
+    {
+        var item = await _productAppService.UpdateAsync(productId, productDto);
+
+        return item is null ? NotFound() : Ok(item);
     }
 
     [HttpGet]
