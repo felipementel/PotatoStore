@@ -15,6 +15,8 @@ namespace Potato.Product.Infra.Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             new ProductsEntityTypeConfiguration().Configure(modelBuilder.Entity<Domain.Aggregates.Products.Entities.Product>());
+            new UrlEntityTypeConfiguration().Configure(modelBuilder.Entity<Domain.Aggregates.Products.Entities.URL>());
+            
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options) 

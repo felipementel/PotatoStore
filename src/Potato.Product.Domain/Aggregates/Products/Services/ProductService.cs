@@ -41,5 +41,27 @@ namespace Potato.Product.Domain.Aggregates.Products.Services
             await _productRepository.RemoveAsync(entity);
             return true;
         }
+
+        public async Task<Entities.Product> UpdateAsync(Guid productId, Entities.Product product)
+        {
+            var item = await _productRepository.GetByIdAsync(productId);
+
+            if (item != null)
+            {
+                var updatedProduct = item with
+                {
+                    Name = product.Name,
+                    Description = product.Description,
+                    Price = product.Price,
+                    SKU = product.SKU,
+                    OnCreated = product.OnCreated,
+                    OnModified = product.OnModified
+                };
+
+                return await _productRepository.UpdateAsync(updatedProduct);
+            }
+
+            return item;
+        }
     }
 }

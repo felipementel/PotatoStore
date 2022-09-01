@@ -38,9 +38,13 @@ namespace Potato.Product.Infra.Database.Repositories
             await _productContext.SaveChangesAsync();
         }
 
-        public Task UpdateAsync(Guid id, Domain.Aggregates.Products.Entities.Product product)
+        public async Task<Domain.Aggregates.Products.Entities.Product> UpdateAsync(Domain.Aggregates.Products.Entities.Product product)
         {
-            throw new NotImplementedException();
+            _productContext.Entry(product).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+
+            await _productContext.SaveChangesAsync();
+
+            return product;
         }
 
         public async Task<Domain.Aggregates.Products.Entities.Product> PartialUpdateAsync(Domain.Aggregates.Products.Entities.Product product)
