@@ -39,14 +39,14 @@ public class ProductTest
             .GenerateProductDto_Valid(1)
             .First();
 
-        var result = _productAppServiceMock.Setup(p => p
+        Moq.Language.Flow.IReturnsResult<IProductAppService>? result = _productAppServiceMock.Setup(p => p
         .UpdateAsync(
             It.IsAny<Guid>(),
             It.IsAny<ProductDto>()))
         .ReturnsAsync(() => productDto);
 
         //Act
-        var itemHttp = await productController
+        Microsoft.AspNetCore.Mvc.IActionResult? itemHttp = await productController
             .UpdateProductAsync(productDto.Id, productDto);
 
         //Assert
@@ -64,14 +64,14 @@ public class ProductTest
             .GenerateProductDto_Valid(1)
             .First();
 
-        var result = _productAppServiceMock.Setup(p => p
+        Moq.Language.Flow.IReturnsResult<IProductAppService>? result = _productAppServiceMock.Setup(p => p
         .UpdateAsync(
             It.IsAny<Guid>(),
             It.IsAny<ProductDto>()))
         .ReturnsAsync(() => default);
 
         //Act
-        var itemHttp = await productController
+        Microsoft.AspNetCore.Mvc.IActionResult? itemHttp = await productController
             .UpdateProductAsync(Guid.NewGuid(), productDto);
 
         //Assert
