@@ -15,7 +15,7 @@ namespace Potato.Product.Api.Test;
 
 public class ProductTest
 {
-    private readonly Mock<ILogger<ProductController>> _logger;
+    private readonly Mock<ILogger<ProductController>> _loggerMock;
 
     public readonly Mock<IProductAppService> _productAppServiceMock;
 
@@ -23,11 +23,11 @@ public class ProductTest
 
     public ProductTest()
     {
-        _logger = new Mock<ILogger<ProductController>>();
+        _loggerMock = new Mock<ILogger<ProductController>>();
         _productAppServiceMock = new Mock<IProductAppService>();
 
         productController = new ProductController(
-            _logger.Object,
+            _loggerMock.Object,
             _productAppServiceMock.Object);
     }
 
