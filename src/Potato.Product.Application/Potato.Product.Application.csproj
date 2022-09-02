@@ -1,13 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<ProjectGuid>d0d5b615-44ed-4b05-be12-a09d6fdf556a</ProjectGuid>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Potato.Product.Domain\Potato.Product.Domain.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Potato.Product.Domain\Potato.Product.Domain.csproj" />
+	</ItemGroup>
 
 </Project>
