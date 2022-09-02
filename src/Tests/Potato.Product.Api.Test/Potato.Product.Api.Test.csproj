@@ -26,7 +26,6 @@
 	<ItemGroup>
 		<ProjectReference Include="..\..\Potato.Product.Api\Potato.Product.Api.csproj" />
 		<ProjectReference Include="..\..\Potato.Product.Application\Potato.Product.Application.csproj" />
-		<ProjectReference Include="..\..\PotatoStore.Base.Test\PotatoStore.Base.Test.csproj" />
 		<ProjectReference Include="..\PotatoStore.Base.Test\PotatoStore.Base.Test.csproj" />
 	</ItemGroup>
 
