@@ -1,16 +1,16 @@
 name: .NET
 
-on:
-  push:
-    paths:
-      - 'src/**'
-    branches: [ "main" ]
-  pull_request:
-    paths:
-      - 'src/**'
-    branches: [ "main" ]
+#on:
+#  push:
+#    paths:
+#      - 'src/**'
+#    branches: [ "main" ]
+#  pull_request:
+#    paths:
+#      - 'src/**'
+#    branches: [ "main" ]
 
-  workflow_dispatch:
+#  workflow_dispatch:
 
 
 defaults:
