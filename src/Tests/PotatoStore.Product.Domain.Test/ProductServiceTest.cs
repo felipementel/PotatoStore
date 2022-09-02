@@ -7,18 +7,18 @@ using Xunit;
 
 namespace Potato.Product.Domain.Test
 {
-    //Given_When_Should
+
     public class ProductServiceTest
     {
         public readonly ProductService _productService;
 
-        private readonly Mock<IProductRepository> _productRepository;
+        private readonly Mock<IProductRepository> _productRepositoryMock;
 
         public ProductServiceTest()
         {
-            _productRepository = new Mock<IProductRepository>();
+            _productRepositoryMock = new Mock<IProductRepository>();
 
-            _productService = new ProductService(_productRepository.Object);
+            _productService = new ProductService(_productRepositoryMock.Object);
         }
 
         [Fact]
@@ -29,12 +29,12 @@ namespace Potato.Product.Domain.Test
                 .GenerateProductDto_Valid(1)
                 .First();
 
-            _productRepository.Setup(p => p
+            _productRepositoryMock.Setup(p => p
             .GetByIdAsync(
                 It.IsAny<Guid>()))
                 .ReturnsAsync(() => productDto);
 
-            _productRepository.Setup(p => p
+            _productRepositoryMock.Setup(p => p
             .UpdateAsync(
                 It.IsAny<Aggregates.Products.Entities.Product>()))
                 .ReturnsAsync(() => productDto);
@@ -54,7 +54,7 @@ namespace Potato.Product.Domain.Test
                 .GenerateProductDto_Valid(1)
                 .First();
 
-            _productRepository.Setup(p => p
+            _productRepositoryMock.Setup(p => p
             .GetByIdAsync(
                 It.IsAny<Guid>()))
                 .ReturnsAsync(() => default);
