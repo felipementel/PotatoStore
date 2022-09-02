@@ -53,5 +53,6 @@ jobs:
           dotnet restore ./src/Potato.Product.sln
           dotnet build ./src/Potato.Product.sln --configuration Release
           dotnet test ./src/Tests/Potato.Product.Api.Test/Potato.Product.Api.Test.csproj --collect:"XPlat Code Coverage" --logger trx --results-directory $GITHUB_WORKSPACE/test/testresults
+          dotnet test ./src/Tests/Potato.Product.Domain.Test/Potato.Product.Domain.Test.csproj --collect:"XPlat Code Coverage" --logger trx --results-directory $GITHUB_WORKSPACE/test/testresults
           reportgenerator -reports:$GITHUB_WORKSPACE/test/testresults/**/coverage.cobertura.xml -targetdir:$GITHUB_WORKSPACE/test/coverlet/reports -reporttypes:"SonarQube"
           dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
