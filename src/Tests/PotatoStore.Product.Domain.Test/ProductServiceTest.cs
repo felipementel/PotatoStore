@@ -7,7 +7,6 @@ using Xunit;
 
 namespace Potato.Product.Domain.Test
 {
-
     public class ProductServiceTest
     {
         public readonly ProductService _productService;
