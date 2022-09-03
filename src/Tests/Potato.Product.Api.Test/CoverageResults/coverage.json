@@ -1,0 +1,1157 @@
+{
+  "Potato.Product.Api.dll": {
+    "C:\\Proj\\PotatoStore\\src\\Potato.Product.Api\\Program.cs": {
+      "Program": {
+        "System.Void Program::<Main>$(System.String[])": {
+          "Lines": {
+            "11": 0,
+            "14": 0,
+            "15": 0,
+            "16": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "39": 0,
+            "40": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0,
+            "59": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0,
+            "64": 0,
+            "67": 0,
+            "68": 0,
+            "69": 0,
+            "70": 0,
+            "71": 0,
+            "72": 0,
+            "73": 0,
+            "74": 0,
+            "75": 0,
+            "76": 0,
+            "77": 0,
+            "78": 0,
+            "79": 0,
+            "81": 0,
+            "83": 0,
+            "85": 0,
+            "87": 0
+          },
+          "Branches": [
+            {
+              "Line": 67,
+              "Offset": 331,
+              "EndOffset": 333,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 67,
+              "Offset": 331,
+              "EndOffset": 381,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Proj\\PotatoStore\\src\\Potato.Product.Api\\Converters\\DateOnlyConverter.cs": {
+      "Potato.Product.Api.Converters.DateOnlyConverter": {
+        "System.DateOnly Potato.Product.Api.Converters.DateOnlyConverter::Read(System.Text.Json.Utf8JsonReader&,System.Type,System.Text.Json.JsonSerializerOptions)": {
+          "Lines": {
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0
+          },
+          "Branches": []
+        },
+        "System.Void Potato.Product.Api.Converters.DateOnlyConverter::Write(System.Text.Json.Utf8JsonWriter,System.DateOnly,System.Text.Json.JsonSerializerOptions)": {
+          "Lines": {
+            "26": 0,
+            "27": 0,
+            "28": 0
+          },
+          "Branches": []
+        },
+        "System.Void Potato.Product.Api.Converters.DateOnlyConverter::.ctor()": {
+          "Lines": {
+            "10": 0,
+            "11": 0,
+            "12": 0
+          },
+          "Branches": []
+        },
+        "System.Void Potato.Product.Api.Converters.DateOnlyConverter::.ctor(System.String)": {
+          "Lines": {
+            "14": 0,
+            "15": 0,
+            "16": 0,
+            "17": 0
+          },
+          "Branches": [
+            {
+              "Line": 16,
+              "Offset": 11,
+              "EndOffset": 13,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 16,
+              "Offset": 11,
+              "EndOffset": 19,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Proj\\PotatoStore\\src\\Potato.Product.Api\\Controllers\\ProductsController.cs": {
+      "Potato.Product.Api.Controllers.ProductController": {
+        "System.Void Potato.Product.Api.Controllers.ProductController::.ctor(Microsoft.Extensions.Logging.ILogger`1<Potato.Product.Api.Controllers.ProductController>,Potato.Product.Application.Interfaces.Services.IProductAppService)": {
+          "Lines": {
+            "19": 5,
+            "20": 5,
+            "21": 5,
+            "22": 5,
+            "23": 5,
+            "24": 5,
+            "25": 5
+          },
+          "Branches": []
+        }
+      },
+      "Potato.Product.Api.Controllers.ProductController/<CreateProduct>d__4": {
+        "System.Void Potato.Product.Api.Controllers.ProductController/<CreateProduct>d__4::MoveNext()": {
+          "Lines": {
+            "47": 0,
+            "48": 0,
+            "50": 0,
+            "51": 0
+          },
+          "Branches": []
+        }
+      },
+      "Potato.Product.Api.Controllers.ProductController/<DeleteAsync>d__6": {
+        "System.Void Potato.Product.Api.Controllers.ProductController/<DeleteAsync>d__6::MoveNext()": {
+          "Lines": {
+            "79": 0,
+            "80": 0,
+            "81": 0,
+            "82": 0
+          },
+          "Branches": [
+            {
+              "Line": 81,
+              "Offset": 150,
+              "EndOffset": 152,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 81,
+              "Offset": 150,
+              "EndOffset": 213,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        }
+      },
+      "Potato.Product.Api.Controllers.ProductController/<GetAllAsync>d__8": {
+        "System.Void Potato.Product.Api.Controllers.ProductController/<GetAllAsync>d__8::MoveNext()": {
+          "Lines": {
+            "104": 3,
+            "105": 3,
+            "107": 3,
+            "109": 3
+          },
+          "Branches": [
+            {
+              "Line": 107,
+              "Offset": 156,
+              "EndOffset": 158,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 107,
+              "Offset": 156,
+              "EndOffset": 175,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 2
+            }
+          ]
+        }
+      },
+      "Potato.Product.Api.Controllers.ProductController/<GetById>d__3": {
+        "System.Void Potato.Product.Api.Controllers.ProductController/<GetById>d__3::MoveNext()": {
+          "Lines": {
+            "34": 0,
+            "35": 0,
+            "37": 0,
+            "38": 0
+          },
+          "Branches": []
+        }
+      },
+      "Potato.Product.Api.Controllers.ProductController/<UpdateProduct>d__5": {
+        "System.Void Potato.Product.Api.Controllers.ProductController/<UpdateProduct>d__5::MoveNext()": {
+          "Lines": {
+            "60": 0,
+            "61": 0,
+            "63": 0,
+            "64": 0,
+            "65": 0,
+            "68": 0,
+            "69": 0,
+            "71": 0,
+            "72": 0
+          },
+          "Branches": [
+            {
+              "Line": 63,
+              "Offset": 178,
+              "EndOffset": 180,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 63,
+              "Offset": 178,
+              "EndOffset": 198,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        }
+      },
+      "Potato.Product.Api.Controllers.ProductController/<UpdateProductAsync>d__7": {
+        "System.Void Potato.Product.Api.Controllers.ProductController/<UpdateProductAsync>d__7::MoveNext()": {
+          "Lines": {
+            "91": 2,
+            "92": 2,
+            "94": 2,
+            "95": 2
+          },
+          "Branches": [
+            {
+              "Line": 94,
+              "Offset": 163,
+              "EndOffset": 165,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 94,
+              "Offset": 163,
+              "EndOffset": 188,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      }
+    }
+  },
+  "Potato.Product.Application.dll": {
+    "C:\\Proj\\PotatoStore\\src\\Potato.Product.Application\\Dtos\\ProductDto.cs": {
+      "Potato.Product.Application.Dtos.ProductDto": {
+        "System.Guid Potato.Product.Application.Dtos.ProductDto::get_Id()": {
+          "Lines": {
+            "27": 9
+          },
+          "Branches": []
+        },
+        "System.String Potato.Product.Application.Dtos.ProductDto::get_Name()": {
+          "Lines": {
+            "29": 6
+          },
+          "Branches": []
+        },
+        "System.String Potato.Product.Application.Dtos.ProductDto::get_Description()": {
+          "Lines": {
+            "31": 6
+          },
+          "Branches": []
+        },
+        "System.String Potato.Product.Application.Dtos.ProductDto::get_SKU()": {
+          "Lines": {
+            "35": 6
+          },
+          "Branches": []
+        },
+        "System.Decimal Potato.Product.Application.Dtos.ProductDto::get_Price()": {
+          "Lines": {
+            "37": 6
+          },
+          "Branches": []
+        },
+        "System.DateOnly Potato.Product.Application.Dtos.ProductDto::get_OnCreated()": {
+          "Lines": {
+            "39": 6
+          },
+          "Branches": []
+        },
+        "System.DateTime Potato.Product.Application.Dtos.ProductDto::get_OnModified()": {
+          "Lines": {
+            "41": 6
+          },
+          "Branches": []
+        },
+        "Potato.Product.Domain.Aggregates.Products.Entities.Product Potato.Product.Application.Dtos.ProductDto::op_Implicit(Potato.Product.Application.Dtos.ProductDto)": {
+          "Lines": {
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0
+          },
+          "Branches": []
+        },
+        "Potato.Product.Application.Dtos.ProductDto Potato.Product.Application.Dtos.ProductDto::op_Implicit(Potato.Product.Domain.Aggregates.Products.Entities.Product)": {
+          "Lines": {
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0,
+            "59": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0
+          },
+          "Branches": [
+            {
+              "Line": 54,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 54,
+              "Offset": 7,
+              "EndOffset": 58,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void Potato.Product.Application.Dtos.ProductDto::.ctor(System.Guid,System.String,System.String,System.String,System.Decimal,System.DateOnly,System.DateTime)": {
+          "Lines": {
+            "7": 6,
+            "8": 6,
+            "9": 6,
+            "10": 6,
+            "11": 6,
+            "12": 6,
+            "13": 6,
+            "14": 6,
+            "15": 6,
+            "16": 6,
+            "17": 6,
+            "18": 6,
+            "19": 6,
+            "21": 6,
+            "22": 6,
+            "23": 6,
+            "24": 6,
+            "25": 6
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Proj\\PotatoStore\\src\\Potato.Product.Application\\AppServices\\ProductAppService.cs": {
+      "Potato.Product.Application.AppServices.ProductAppService": {
+        "System.Void Potato.Product.Application.AppServices.ProductAppService::.ctor(Potato.Product.Domain.Aggregates.Products.Interfaces.Services.IProductService)": {
+          "Lines": {
+            "12": 0,
+            "13": 0,
+            "14": 0,
+            "15": 0
+          },
+          "Branches": []
+        }
+      },
+      "Potato.Product.Application.AppServices.ProductAppService/<>c": {
+        "Potato.Product.Application.Dtos.ProductDto Potato.Product.Application.AppServices.ProductAppService/<>c::<GetAllAsync>b__2_0(Potato.Product.Domain.Aggregates.Products.Entities.Product)": {
+          "Lines": {
+            "21": 0
+          },
+          "Branches": []
+        }
+      },
+      "Potato.Product.Application.AppServices.ProductAppService/<DeleteAsync>d__7": {
+        "System.Void Potato.Product.Application.AppServices.ProductAppService/<DeleteAsync>d__7::MoveNext()": {
+          "Lines": {
+            "47": 0,
+            "48": 0,
+            "49": 0
+          },
+          "Branches": []
+        }
+      },
+      "Potato.Product.Application.AppServices.ProductAppService/<GetAllAsync>d__2": {
+        "System.Void Potato.Product.Application.AppServices.ProductAppService/<GetAllAsync>d__2::MoveNext()": {
+          "Lines": {
+            "18": 0,
+            "19": 0,
+            "22": 0
+          },
+          "Branches": []
+        }
+      },
+      "Potato.Product.Application.AppServices.ProductAppService/<GetByIdAsync>d__3": {
+        "System.Void Potato.Product.Application.AppServices.ProductAppService/<GetByIdAsync>d__3::MoveNext()": {
+          "Lines": {
+            "25": 0,
+            "26": 0,
+            "28": 0,
+            "29": 0
+          },
+          "Branches": []
+        }
+      },
+      "Potato.Product.Application.AppServices.ProductAppService/<InsertAsync>d__4": {
+        "System.Void Potato.Product.Application.AppServices.ProductAppService/<InsertAsync>d__4::MoveNext()": {
+          "Lines": {
+            "32": 0,
+            "33": 0,
+            "34": 0
+          },
+          "Branches": []
+        }
+      },
+      "Potato.Product.Application.AppServices.ProductAppService/<PatchAsync>d__5": {
+        "System.Void Potato.Product.Application.AppServices.ProductAppService/<PatchAsync>d__5::MoveNext()": {
+          "Lines": {
+            "37": 0,
+            "38": 0,
+            "39": 0
+          },
+          "Branches": []
+        }
+      },
+      "Potato.Product.Application.AppServices.ProductAppService/<UpdateAsync>d__6": {
+        "System.Void Potato.Product.Application.AppServices.ProductAppService/<UpdateAsync>d__6::MoveNext()": {
+          "Lines": {
+            "42": 0,
+            "43": 0,
+            "44": 0
+          },
+          "Branches": []
+        }
+      }
+    }
+  },
+  "Potato.Product.Domain.dll": {
+    "C:\\Proj\\PotatoStore\\src\\Potato.Product.Domain\\Aggregates\\Products\\Services\\ProductService.cs": {
+      "Potato.Product.Domain.Aggregates.Products.Services.ProductService": {
+        "System.Void Potato.Product.Domain.Aggregates.Products.Services.ProductService::.ctor(Potato.Product.Domain.Aggregates.Products.Interfaces.Repositories.IProductRepository)": {
+          "Lines": {
+            "10": 0,
+            "11": 0,
+            "12": 0,
+            "13": 0
+          },
+          "Branches": []
+        }
+      },
+      "Potato.Product.Domain.Aggregates.Products.Services.ProductService/<AddAsync>d__2": {
+        "System.Void Potato.Product.Domain.Aggregates.Products.Services.ProductService/<AddAsync>d__2::MoveNext()": {
+          "Lines": {
+            "16": 0,
+            "17": 0,
+            "18": 0
+          },
+          "Branches": []
+        }
+      },
+      "Potato.Product.Domain.Aggregates.Products.Services.ProductService/<DeleteAsync>d__6": {
+        "System.Void Potato.Product.Domain.Aggregates.Products.Services.ProductService/<DeleteAsync>d__6::MoveNext()": {
+          "Lines": {
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0
+          },
+          "Branches": [
+            {
+              "Line": 38,
+              "Offset": 178,
+              "EndOffset": 180,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 38,
+              "Offset": 178,
+              "EndOffset": 187,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        }
+      },
+      "Potato.Product.Domain.Aggregates.Products.Services.ProductService/<GetAllAsync>d__3": {
+        "System.Void Potato.Product.Domain.Aggregates.Products.Services.ProductService/<GetAllAsync>d__3::MoveNext()": {
+          "Lines": {
+            "21": 0,
+            "22": 0,
+            "23": 0
+          },
+          "Branches": []
+        }
+      },
+      "Potato.Product.Domain.Aggregates.Products.Services.ProductService/<GetByIdAsync>d__4": {
+        "System.Void Potato.Product.Domain.Aggregates.Products.Services.ProductService/<GetByIdAsync>d__4::MoveNext()": {
+          "Lines": {
+            "26": 0,
+            "27": 0,
+            "28": 0
+          },
+          "Branches": []
+        }
+      },
+      "Potato.Product.Domain.Aggregates.Products.Services.ProductService/<PatchAsync>d__5": {
+        "System.Void Potato.Product.Domain.Aggregates.Products.Services.ProductService/<PatchAsync>d__5::MoveNext()": {
+          "Lines": {
+            "31": 0,
+            "32": 0,
+            "33": 0
+          },
+          "Branches": []
+        }
+      },
+      "Potato.Product.Domain.Aggregates.Products.Services.ProductService/<UpdateAsync>d__7": {
+        "System.Void Potato.Product.Domain.Aggregates.Products.Services.ProductService/<UpdateAsync>d__7::MoveNext()": {
+          "Lines": {
+            "46": 0,
+            "47": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0,
+            "59": 0,
+            "61": 0,
+            "64": 0,
+            "65": 0
+          },
+          "Branches": [
+            {
+              "Line": 49,
+              "Offset": 178,
+              "EndOffset": 183,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 49,
+              "Offset": 178,
+              "EndOffset": 435,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Proj\\PotatoStore\\src\\Potato.Product.Domain\\Aggregates\\Products\\Entities\\Product.cs": {
+      "Potato.Product.Domain.Aggregates.Products.Entities.Product": {
+        "System.Guid Potato.Product.Domain.Aggregates.Products.Entities.Product::get_Id()": {
+          "Lines": {
+            "23": 0
+          },
+          "Branches": []
+        },
+        "System.String Potato.Product.Domain.Aggregates.Products.Entities.Product::get_Name()": {
+          "Lines": {
+            "25": 0
+          },
+          "Branches": []
+        },
+        "System.String Potato.Product.Domain.Aggregates.Products.Entities.Product::get_Description()": {
+          "Lines": {
+            "27": 0
+          },
+          "Branches": []
+        },
+        "System.String Potato.Product.Domain.Aggregates.Products.Entities.Product::get_SKU()": {
+          "Lines": {
+            "31": 0
+          },
+          "Branches": []
+        },
+        "System.Decimal Potato.Product.Domain.Aggregates.Products.Entities.Product::get_Price()": {
+          "Lines": {
+            "33": 0
+          },
+          "Branches": []
+        },
+        "System.DateOnly Potato.Product.Domain.Aggregates.Products.Entities.Product::get_OnCreated()": {
+          "Lines": {
+            "35": 0
+          },
+          "Branches": []
+        },
+        "System.DateTime Potato.Product.Domain.Aggregates.Products.Entities.Product::get_OnModified()": {
+          "Lines": {
+            "37": 0
+          },
+          "Branches": []
+        },
+        "System.Void Potato.Product.Domain.Aggregates.Products.Entities.Product::.ctor(System.Guid,System.String,System.String,System.String,System.Decimal)": {
+          "Lines": {
+            "5": 0,
+            "6": 0,
+            "7": 0,
+            "8": 0,
+            "9": 0,
+            "10": 0,
+            "11": 0,
+            "12": 0,
+            "13": 0,
+            "14": 0,
+            "15": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Proj\\PotatoStore\\src\\Potato.Product.Domain\\Aggregates\\Products\\Entities\\URL.cs": {
+      "Potato.Product.Domain.Aggregates.Products.Entities.URL": {
+        "System.String Potato.Product.Domain.Aggregates.Products.Entities.URL::get_Endereco()": {
+          "Lines": {
+            "3": 0
+          },
+          "Branches": []
+        }
+      }
+    }
+  },
+  "Potato.Product.Infra.Database.dll": {
+    "C:\\Proj\\PotatoStore\\src\\Potato.Product.Infra.Database\\ProductContext.cs": {
+      "Potato.Product.Infra.Database.ProductContext": {
+        "Microsoft.EntityFrameworkCore.DbSet`1<Potato.Product.Domain.Aggregates.Products.Entities.Product> Potato.Product.Infra.Database.ProductContext::get_Products()": {
+          "Lines": {
+            "13": 0
+          },
+          "Branches": []
+        },
+        "System.Void Potato.Product.Infra.Database.ProductContext::OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)": {
+          "Lines": {
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "20": 0
+          },
+          "Branches": []
+        },
+        "System.Void Potato.Product.Infra.Database.ProductContext::OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)": {
+          "Lines": {
+            "23": 0
+          },
+          "Branches": []
+        },
+        "System.Void Potato.Product.Infra.Database.ProductContext::.ctor(Microsoft.EntityFrameworkCore.DbContextOptions)": {
+          "Lines": {
+            "9": 0,
+            "10": 0,
+            "11": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Proj\\PotatoStore\\src\\Potato.Product.Infra.Database\\Repositories\\ProductRepository.cs": {
+      "Potato.Product.Infra.Database.Repositories.ProductRepository": {
+        "System.Void Potato.Product.Infra.Database.Repositories.ProductRepository::.ctor(Potato.Product.Infra.Database.ProductContext)": {
+          "Lines": {
+            "10": 0,
+            "11": 0,
+            "12": 0,
+            "13": 0
+          },
+          "Branches": []
+        }
+      },
+      "Potato.Product.Infra.Database.Repositories.ProductRepository/<AddAsync>d__2": {
+        "System.Void Potato.Product.Infra.Database.Repositories.ProductRepository/<AddAsync>d__2::MoveNext()": {
+          "Lines": {
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "20": 0,
+            "21": 0
+          },
+          "Branches": []
+        }
+      },
+      "Potato.Product.Infra.Database.Repositories.ProductRepository/<GetAllAsync>d__3": {
+        "System.Void Potato.Product.Infra.Database.Repositories.ProductRepository/<GetAllAsync>d__3::MoveNext()": {
+          "Lines": {
+            "24": 0,
+            "25": 0,
+            "26": 0
+          },
+          "Branches": [
+            {
+              "Line": 25,
+              "Offset": 32,
+              "EndOffset": 34,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 25,
+              "Offset": 32,
+              "EndOffset": 38,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        }
+      },
+      "Potato.Product.Infra.Database.Repositories.ProductRepository/<GetByIdAsync>d__4": {
+        "System.Void Potato.Product.Infra.Database.Repositories.ProductRepository/<GetByIdAsync>d__4::MoveNext()": {
+          "Lines": {
+            "29": 0,
+            "30": 0,
+            "32": 0,
+            "35": 0
+          },
+          "Branches": [
+            {
+              "Line": 30,
+              "Offset": 63,
+              "EndOffset": 65,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 30,
+              "Offset": 63,
+              "EndOffset": 72,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        }
+      },
+      "Potato.Product.Infra.Database.Repositories.ProductRepository/<PatchAsync>d__7": {
+        "System.Void Potato.Product.Infra.Database.Repositories.ProductRepository/<PatchAsync>d__7::MoveNext()": {
+          "Lines": {
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "57": 0,
+            "58": 0
+          },
+          "Branches": []
+        }
+      },
+      "Potato.Product.Infra.Database.Repositories.ProductRepository/<RemoveAsync>d__5": {
+        "System.Void Potato.Product.Infra.Database.Repositories.ProductRepository/<RemoveAsync>d__5::MoveNext()": {
+          "Lines": {
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0
+          },
+          "Branches": []
+        }
+      },
+      "Potato.Product.Infra.Database.Repositories.ProductRepository/<UpdateAsync>d__6": {
+        "System.Void Potato.Product.Infra.Database.Repositories.ProductRepository/<UpdateAsync>d__6::MoveNext()": {
+          "Lines": {
+            "44": 0,
+            "45": 0,
+            "47": 0,
+            "49": 0,
+            "50": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Proj\\PotatoStore\\src\\Potato.Product.Infra.Database\\Migrations\\20220624013329_InitDatabase.cs": {
+      "Potato.Product.Infra.Database.Migrations.InitDatabase": {
+        "System.Void Potato.Product.Infra.Database.Migrations.InitDatabase::Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
+          "Lines": {
+            "11": 0,
+            "12": 0,
+            "13": 0,
+            "14": 0,
+            "15": 0,
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0
+          },
+          "Branches": []
+        },
+        "System.Void Potato.Product.Infra.Database.Migrations.InitDatabase::Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
+          "Lines": {
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Proj\\PotatoStore\\src\\Potato.Product.Infra.Database\\Migrations\\20220624013329_InitDatabase.Designer.cs": {
+      "Potato.Product.Infra.Database.Migrations.InitDatabase": {
+        "System.Void Potato.Product.Infra.Database.Migrations.InitDatabase::BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)": {
+          "Lines": {
+            "19": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "25": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0,
+            "60": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Proj\\PotatoStore\\src\\Potato.Product.Infra.Database\\Migrations\\20220811190439_Url.cs": {
+      "Potato.Product.Infra.Database.Migrations.Url": {
+        "System.Void Potato.Product.Infra.Database.Migrations.Url::Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
+          "Lines": {
+            "10": 0,
+            "11": 0,
+            "12": 0,
+            "13": 0,
+            "14": 0,
+            "15": 0,
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0
+          },
+          "Branches": []
+        },
+        "System.Void Potato.Product.Infra.Database.Migrations.Url::Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)": {
+          "Lines": {
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "26": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Proj\\PotatoStore\\src\\Potato.Product.Infra.Database\\Migrations\\20220811190439_Url.Designer.cs": {
+      "Potato.Product.Infra.Database.Migrations.Url": {
+        "System.Void Potato.Product.Infra.Database.Migrations.Url::BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)": {
+          "Lines": {
+            "19": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "25": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "64": 0,
+            "65": 0,
+            "66": 0,
+            "67": 0,
+            "69": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Proj\\PotatoStore\\src\\Potato.Product.Infra.Database\\Migrations\\ProductContextModelSnapshot.cs": {
+      "Potato.Product.Infra.Database.Migrations.ProductContextModelSnapshot": {
+        "System.Void Potato.Product.Infra.Database.Migrations.ProductContextModelSnapshot::BuildModel(Microsoft.EntityFrameworkCore.ModelBuilder)": {
+          "Lines": {
+            "17": 0,
+            "19": 0,
+            "20": 0,
+            "21": 0,
+            "23": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "64": 0,
+            "65": 0,
+            "66": 0,
+            "67": 0,
+            "69": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Proj\\PotatoStore\\src\\Potato.Product.Infra.Database\\Configurations\\ProductsEntityTypeConfiguration.cs": {
+      "Potato.Product.Infra.Database.Configurations.ProductsEntityTypeConfiguration": {
+        "System.Void Potato.Product.Infra.Database.Configurations.ProductsEntityTypeConfiguration::Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder`1<Potato.Product.Domain.Aggregates.Products.Entities.Product>)": {
+          "Lines": {
+            "9": 0,
+            "10": 0,
+            "11": 0,
+            "13": 0,
+            "14": 0,
+            "16": 0,
+            "17": 0,
+            "18": 0,
+            "19": 0,
+            "20": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Proj\\PotatoStore\\src\\Potato.Product.Infra.Database\\Configurations\\UrlEntityTypeConfiguration.cs": {
+      "Potato.Product.Infra.Database.Configurations.UrlEntityTypeConfiguration": {
+        "System.Void Potato.Product.Infra.Database.Configurations.UrlEntityTypeConfiguration::Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder`1<Potato.Product.Domain.Aggregates.Products.Entities.URL>)": {
+          "Lines": {
+            "9": 0,
+            "10": 0,
+            "11": 0,
+            "12": 0
+          },
+          "Branches": []
+        }
+      }
+    }
+  },
+  "PotatoStore.Base.Test.dll": {
+    "C:\\Proj\\PotatoStore\\src\\Tests\\PotatoStore.Base.Test\\DataGenerator.cs": {
+      "PotatoStore.Base.Test.DataGenerator": {
+        "System.Collections.Generic.List`1<Potato.Product.Application.Dtos.ProductDto> PotatoStore.Base.Test.DataGenerator::GenerateProductDto_Valid(System.Int32)": {
+          "Lines": {
+            "10": 2,
+            "11": 2,
+            "12": 2,
+            "13": 2,
+            "14": 2,
+            "15": 2,
+            "16": 2,
+            "17": 2,
+            "18": 2,
+            "19": 2,
+            "20": 2,
+            "21": 2,
+            "22": 2,
+            "23": 2,
+            "24": 2,
+            "25": 2,
+            "26": 2,
+            "27": 2
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<Potato.Product.Domain.Aggregates.Products.Entities.Product> PotatoStore.Base.Test.DataGenerator::GenerateProduct_Valid(System.Int32)": {
+          "Lines": {
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0
+          },
+          "Branches": []
+        }
+      }
+    }
+  }
+}
