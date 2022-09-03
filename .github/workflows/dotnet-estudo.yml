@@ -36,6 +36,7 @@ jobs:
     - name: Install SonarCloud scanner
       run: |
         dotnet tool install --global dotnet-sonarscanner
+        dotnet tool install --global dotnet-coverage
 
     - name: Install Report Generator
       run: dotnet tool install --global dotnet-reportgenerator-globaltool
