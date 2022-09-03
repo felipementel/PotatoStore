@@ -12,6 +12,9 @@ on:
 
   workflow_dispatch:
 
+env: 
+  solutionFolder: ./Potato.Product.sln
+
 
 defaults:
   run:
@@ -43,8 +46,7 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: |
         dotnet-sonarscanner begin /k:"felipementel_PotatoStore" /o:"felipementel" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-        dotnet restore ./Potato.Product.sln
-        dotnet build ./Potato.Product.sln --configuration Release
-        dotnet test ./Potato.Product.sln --collect:"XPlat Code Coverage" --logger trx --results-directory $GITHUB_WORKSPACE/test/testresults
-        reportgenerator -reports:$GITHUB_WORKSPACE/test/testresults/**/coverage.cobertura.xml -targetdir:$GITHUB_WORKSPACE/test/coverlet/reports -reporttypes:"SonarQube"
+        dotnet restore $solutionFolder
+        dotnet build $solutionFolder --configuration Release
+        dotnet-coverage collect 'dotnet test --no-build' -f xml -o 'testresult/coverage.xml'
         dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
