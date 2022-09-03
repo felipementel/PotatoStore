@@ -34,6 +34,9 @@ jobs:
       run: |
         dotnet tool install --global dotnet-sonarscanner
 
+    - name: Install Report Generator
+      run: dotnet tool install --global dotnet-reportgenerator-globaltool
+
     - name: Build and analyze
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
