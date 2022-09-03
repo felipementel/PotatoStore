@@ -21,6 +21,21 @@ To use in WSL for ELK warmup
 sysctl -w vm.max_map_count=262144
 ```
 
+Packages
+
+```
+dotnet tool install --global otnet-reportgenerator-globaltool
+```
+```
+dotnet tool install --global dotnet-ef
+```
+```
+dotnet tool install --global dotnet-sonarscanner
+```
+```
+dotnet tool update -g dotnet-reportgenerator-globaltool
+```
+
 References
 
 1. To create a project:
@@ -67,16 +82,30 @@ dotnet ef database update InitDatabase --project Potato.Product.Infra.Database -
 https://reportgenerator.io/
 ````
 
-Add packages
-````
-dotnet add package coverlet.msbuild
-````
 Run tests
 
 ````
-dotnet tool update -g dotnet-reportgenerator-globaltool
-dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=coverage.opencover.xml
-reportgenerator -reports:**/coverage.opencover.xml -targetdir:coverage_report
+
+$>src> dotnet test Potato.Product.sln --no-build /p:CollectCoverage=true /p:CoverletOutput=..\results\coverage /p:MergeWith=..\results\coverage.json /p:CoverletOutputFormat=\"cobertura,opencover,json\"
+
+reportgenerator -reports:**/coverage.opencover.xml -targetdir:results\WebResult
+
 #Abre o arquivo no browser padrão
-coverage_report\index.html
+results\WebResult\index.html
 ````
+
+# SonarQube Local
+````
+dotnet sonarscanner begin /k:"PotatoStore" /d:sonar.host.url="http://localhost:9044" /d:sonar.login="YOUR_KEY" /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml 
+
+dotnet build --no-incremental
+
+dotnet-coverage collect 'dotnet test --no-build' -f xml -o 'testresult/coverage.xml'
+
+dotnet sonarscanner end /d:sonar.login="YOUR_KEY"
+````
+
+refs: https://docs.sonarqube.org/latest/analysis/test-coverage/dotnet-test-coverage/
+
+# SonarCloud
+
