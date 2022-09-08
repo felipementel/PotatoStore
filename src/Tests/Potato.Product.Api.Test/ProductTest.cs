@@ -5,14 +5,15 @@ using Potato.Product.Application.Dtos;
 using Potato.Product.Application.Interfaces.Services;
 using PotatoStore.Base.Test;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
 namespace Potato.Product.Api.Test;
 
-//Given_When_Should
-
+[ExcludeFromCodeCoverage]
+[Trait("Api","Product")]
 public class ProductTest
 {
     private readonly Mock<ILogger<ProductController>> _loggerMock;
