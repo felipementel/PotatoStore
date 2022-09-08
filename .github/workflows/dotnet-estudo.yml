@@ -12,6 +12,9 @@ on:
 
   workflow_dispatch:
 
+env: 
+  solutionFolder: ./Potato.Product.sln
+
 
 defaults:
   run:
@@ -33,6 +36,7 @@ jobs:
     - name: Install SonarCloud scanner
       run: |
         dotnet tool install --global dotnet-sonarscanner
+        dotnet tool install --global dotnet-coverage
 
     - name: Install Report Generator
       run: dotnet tool install --global dotnet-reportgenerator-globaltool
@@ -43,6 +47,7 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: |
         dotnet-sonarscanner begin /k:"felipementel_PotatoStore" /o:"felipementel" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+
         
         dotnet restore ./Potato.Product.sln
         dotnet build ./Potato.Product.sln --configuration Release
