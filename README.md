@@ -3,12 +3,20 @@
 
 [![.NET](https://github.com/felipementel/PotatoStore/actions/workflows/dotnet-estudo.yml/badge.svg?branch=main)](https://github.com/felipementel/PotatoStore/actions/workflows/dotnet-estudo.yml)
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=felipementel_PotatoStore&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=felipementel_PotatoStore)
+
 This project was created by Avanade Team to study
 
 Commands to create a project
-> dotnet new globaljson --sdk-version 6.0.301
+> dotnet new globaljson --sdk-version 6.0.400
 > 
 > dotnet new webapi --name Potato.Product
+
+## WSL2
+
+````
+https://docs.microsoft.com/en-us/windows/wsl/install
+````
 
 IP Tables to WSL-2
 ```
