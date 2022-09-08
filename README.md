@@ -84,14 +84,17 @@ https://reportgenerator.io/
 
 Run tests
 
+## Using CMD
+
 ````
-
-$>src> dotnet test Potato.Product.sln --no-build /p:CollectCoverage=true /p:CoverletOutput=..\results\coverage /p:MergeWith=..\results\coverage.json /p:CoverletOutputFormat=\"cobertura,opencover,json\"
-
-reportgenerator -reports:**/coverage.opencover.xml -targetdir:results\WebResult
-
+$>src> dotnet test Potato.Product.sln /p:CollectCoverage=true /p:CoverletOutput=Results\Coverage /p:CoverletOutputFormat=cobertura
+````
+````
+$>src> reportgenerator -reports:**/coverage.cobertura.xml -targetdir:Tests\results\WebResult
+````
+````
 #Abre o arquivo no browser padrão
-results\WebResult\index.html
+$>src> Tests\results\WebResult\index.html
 ````
 
 # SonarQube Local
@@ -108,4 +111,3 @@ dotnet sonarscanner end /d:sonar.login="YOUR_KEY"
 refs: https://docs.sonarqube.org/latest/analysis/test-coverage/dotnet-test-coverage/
 
 # SonarCloud
-

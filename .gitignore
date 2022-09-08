@@ -6,6 +6,8 @@
 # CREATED BY OWNER
 .sonarqube
 .vscode
+src/Tests/**/CoverageResults/*
+src/Tests/**/Results/*
 
 # User-specific files
 *.rsuser
