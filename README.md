@@ -32,7 +32,7 @@ sysctl -w vm.max_map_count=262144
 Packages
 
 ```
-dotnet tool install --global otnet-reportgenerator-globaltool
+dotnet tool install --global dotnet-reportgenerator-globaltool
 ```
 ```
 dotnet tool install --global dotnet-ef
@@ -41,7 +41,7 @@ dotnet tool install --global dotnet-ef
 dotnet tool install --global dotnet-sonarscanner
 ```
 ```
-dotnet tool update -g dotnet-reportgenerator-globaltool
+dotnet tool install --global dotnet-coverage
 ```
 
 References
@@ -111,7 +111,7 @@ dotnet sonarscanner begin /k:"PotatoStore" /d:sonar.host.url="http://localhost:9
 
 dotnet build --no-incremental
 
-dotnet-coverage collect 'dotnet test --no-build' -f xml -o 'testresult/coverage.xml'
+dotnet-coverage collect 'dotnet test' -f xml  -o 'coverage.xml'
 
 dotnet sonarscanner end /d:sonar.login="YOUR_KEY"
 ````
