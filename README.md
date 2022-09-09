@@ -32,7 +32,7 @@ sysctl -w vm.max_map_count=262144
 Packages
 
 ```
-dotnet tool install --global otnet-reportgenerator-globaltool
+dotnet tool install --global dotnet-reportgenerator-globaltool
 ```
 ```
 dotnet tool install --global dotnet-ef
@@ -41,7 +41,7 @@ dotnet tool install --global dotnet-ef
 dotnet tool install --global dotnet-sonarscanner
 ```
 ```
-dotnet tool update -g dotnet-reportgenerator-globaltool
+dotnet tool install --global dotnet-coverage
 ```
 
 References
