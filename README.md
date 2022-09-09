@@ -111,7 +111,7 @@ dotnet sonarscanner begin /k:"PotatoStore" /d:sonar.host.url="http://localhost:9
 
 dotnet build --no-incremental
 
-dotnet-coverage collect 'dotnet test --no-build' -f xml -o 'testresult/coverage.xml'
+dotnet-coverage collect 'dotnet test' -f xml  -o 'coverage.xml'
 
 dotnet sonarscanner end /d:sonar.login="YOUR_KEY"
 ````
