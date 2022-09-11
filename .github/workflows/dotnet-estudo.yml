@@ -85,9 +85,9 @@ jobs:
         run: |
           docker build . -f Potato.Product.Api/Dockerfile -t felipementel/potatoproduct:latest
           docker tag felipementel/potatoproduct:latest felipementel/potatoproduct:$(date +%s)
-          docker push felipementel/potatoproduct:latest
-          docker push felipementel/potatoproduct:$(date +%s)
-          docker push ghcr.io/felipementel/potatoproduct:$(date +%s)
+          docker push felipementel/potatoproduct
+          docker push felipementel/potatoproduct
+          docker push ghcr.io/felipementel/potatoproduct
 
       # - name: Build and push
       #   uses: docker/build-push-action@v2
