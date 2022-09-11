@@ -73,15 +73,20 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
-      - name: Commands
+      - name: Build e Push no Azure Container Registry
         run: |
-          pwd
-          ls
+          docker build . --file Potato.Product.Api/Dockerfile --tag felipementel/potatoproduct:latest
+          docker push felipementel/potatoproduct
+      
+      # - name: Commands
+      #   run: |
+      #     pwd
+      #     ls
 
-      - name: Build and push
-        uses: docker/build-push-action@v2
-        with:
-          context: ./Potato.Product.Api
-          file: ./Potato.Product.Api/Dockerfile
-          push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/potatostoreproduct:latest
+      # - name: Build and push
+      #   uses: docker/build-push-action@v2
+      #   with:
+      #     context: .
+      #     file: ./Potato.Product.Api/Dockerfile
+      #     push: true
+      #     tags: ${{ secrets.DOCKER_HUB_USERNAME }}/potatostoreproduct:latest
