@@ -78,10 +78,10 @@ jobs:
           pwd
           ls
 
-      # - name: Build and push
-      #   uses: docker/build-push-action@v2
-      #   with:
-      #     context: .
-      #     file: ./Potato.Product.Api/Dockerfile
-      #     push: true
-      #     tags: ${{ secrets.DOCKER_HUB_USERNAME }}/potatostoreproduct:latest
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./**/Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/potatostoreproduct:latest
