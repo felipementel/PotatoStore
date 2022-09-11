@@ -77,7 +77,7 @@ jobs:
       - name: Build e Push no Azure Container Registry
         run: |
           docker build . -f Potato.Product.Api/Dockerfile -t felipementel/potatoproduct:latest
-          docker tag felipementel/potatoproduct:latest felipementel/:$(date +%s)
+          docker tag felipementel/potatoproduct:latest felipementel/potatoproduct:$(date +%s)
           docker push felipementel/potatoproduct
 
       # - name: Build and push
