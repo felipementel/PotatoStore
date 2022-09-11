@@ -77,6 +77,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./src/Potato.Product.Api/Dockerfile
+          file: ./Potato.Product.Api/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/potatostoreproduct:latest
