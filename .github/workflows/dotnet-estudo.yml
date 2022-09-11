@@ -50,8 +50,8 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: |
         dotnet-sonarscanner begin /k:"felipementel_PotatoStore" /o:"felipementel" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml 
-        dotnet restore $solutionFolder
-        dotnet build $solutionFolder --configuration Release
+        dotnet restore $(solutionFolder)
+        dotnet build $(solutionFolder) --configuration Release
         dotnet-coverage collect 'dotnet test --no-build' -f xml -o 'coverage.xml'        
         dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
   
@@ -69,19 +69,16 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+          login-server: "https://index.docker.io/v1"
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
       - name: Build e Push no Azure Container Registry
         run: |
-          docker build . --file Potato.Product.Api/Dockerfile --tag felipementel/potatoproduct:latest
+          docker build . -f Potato.Product.Api/Dockerfile -t felipementel/potatoproduct:latest
+          docker tag felipementel/potatoproduct:latest felipementel/:$(date +%s)
           docker push felipementel/potatoproduct
-      
-      # - name: Commands
-      #   run: |
-      #     pwd
-      #     ls
 
       # - name: Build and push
       #   uses: docker/build-push-action@v2
