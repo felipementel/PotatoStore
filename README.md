@@ -119,3 +119,8 @@ dotnet sonarscanner end /d:sonar.login="YOUR_KEY"
 refs: https://docs.sonarqube.org/latest/analysis/test-coverage/dotnet-test-coverage/
 
 # SonarCloud
+
+
+# Build to Docker Hub
+
+refs: https://docs.docker.com/ci-cd/github-actions/
