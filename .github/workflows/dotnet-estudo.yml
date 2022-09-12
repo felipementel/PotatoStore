@@ -6,11 +6,11 @@ on:
       - 'src/**'
     tags:
       - 'v*'
-    branches: [ "main", "DockerHub" ]
+    branches: [ "main" ]
   pull_request:
     paths:
       - 'src/**'
-    branches: [ "main", "DockerHub" ]
+    branches: [ "feature/**", fix/** ]
 
   workflow_dispatch:
 
