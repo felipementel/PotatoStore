@@ -4,13 +4,16 @@ on:
   push:
     paths:
       - 'src/**'
-    branches: [ "main" ]
+    branches: [ "main", "CoverletAndSonarQube" ]
   pull_request:
     paths:
       - 'src/**'
-    branches: [ "main" ]
+    branches: [ "main", "CoverletAndSonarQube" ]
 
   workflow_dispatch:
+
+env: 
+  solutionFolder: ./Potato.Product.sln
 
 
 defaults:
@@ -28,13 +31,23 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: 6.0.301
+        dotnet-version: 6.0.x
         
-    - name: Restore dependencies
-      run: dotnet restore
-      
-    - name: Build
-      run: dotnet build --no-restore
-      
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+    - name: Install SonarCloud scanner
+      run: |
+        dotnet tool install --global dotnet-sonarscanner
+        dotnet tool install --global dotnet-coverage
+
+    - name: Install Report Generator
+      run: dotnet tool install --global dotnet-reportgenerator-globaltool
+
+    - name: Build and analyze
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      run: |
+        dotnet-sonarscanner begin /k:"felipementel_PotatoStore" /o:"felipementel" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+        dotnet restore $solutionFolder
+        dotnet build $solutionFolder --configuration Release
+        dotnet-coverage collect 'dotnet test --no-build' -f xml -o 'testresult/coverage.xml'        
+        dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"

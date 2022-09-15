@@ -1,9 +1,11 @@
 ﻿using Bogus;
 using Potato.Product.Application.Dtos;
 using Potato.Product.Domain.Aggregates.Products.Entities;
+using System.Diagnostics.CodeAnalysis;
 
 namespace PotatoStore.Base.Test
 {
+    [ExcludeFromCodeCoverage]
     public class DataGenerator
     {
         public List<ProductDto> GenerateProductDto_Valid(int count)
@@ -34,7 +36,7 @@ namespace PotatoStore.Base.Test
                     p.Random.Guid(),
                     p.Commerce.ProductName(),
                     p.Commerce.ProductDescription(),
-                   // new URL(p.Internet.Url()),
+                    // new URL(p.Internet.Url()),
                     p.Random.Digits(6, 6).ToString(),
                     p.Random.Decimal(1, 5)))
                 .FinishWith((f, u) =>

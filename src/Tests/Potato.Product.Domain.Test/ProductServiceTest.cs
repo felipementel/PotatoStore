@@ -3,23 +3,24 @@ using Moq;
 using Potato.Product.Domain.Aggregates.Products.Interfaces.Repositories;
 using Potato.Product.Domain.Aggregates.Products.Services;
 using PotatoStore.Base.Test;
+using System.Diagnostics.CodeAnalysis;
 using Xunit;
 
 namespace Potato.Product.Domain.Test
 {
-    //Given_When_Should
-
+    [ExcludeFromCodeCoverage]
+    [Trait("Domain", "Service")]
     public class ProductServiceTest
     {
         public readonly ProductService _productService;
 
-        private readonly Mock<IProductRepository> _productRepository;
+        private readonly Mock<IProductRepository> _productRepositoryMock;
 
         public ProductServiceTest()
         {
-            _productRepository = new Mock<IProductRepository>();
+            _productRepositoryMock = new Mock<IProductRepository>();
 
-            _productService = new ProductService(_productRepository.Object);
+            _productService = new ProductService(_productRepositoryMock.Object);
         }
 
         [Fact]
@@ -30,18 +31,18 @@ namespace Potato.Product.Domain.Test
                 .GenerateProductDto_Valid(1)
                 .First();
 
-            _productRepository.Setup(p => p
+            _productRepositoryMock.Setup(p => p
             .GetByIdAsync(
                 It.IsAny<Guid>()))
                 .ReturnsAsync(() => productDto);
 
-            _productRepository.Setup(p => p
+            _productRepositoryMock.Setup(p => p
             .UpdateAsync(
                 It.IsAny<Aggregates.Products.Entities.Product>()))
                 .ReturnsAsync(() => productDto);
 
             //Act
-            var item = await _productService.UpdateAsync(productDto.Id, productDto);
+            Aggregates.Products.Entities.Product? item = await _productService.UpdateAsync(productDto.Id, productDto);
 
             //Assert
             item.Should().NotBeNull();
@@ -55,13 +56,13 @@ namespace Potato.Product.Domain.Test
                 .GenerateProductDto_Valid(1)
                 .First();
 
-            _productRepository.Setup(p => p
+            _productRepositoryMock.Setup(p => p
             .GetByIdAsync(
                 It.IsAny<Guid>()))
                 .ReturnsAsync(() => default);
 
             //Act
-            var item = await _productService.UpdateAsync(productDto.Id, productDto);
+            Aggregates.Products.Entities.Product? item = await _productService.UpdateAsync(productDto.Id, productDto);
 
             //Assert
             item.Should().BeNull();

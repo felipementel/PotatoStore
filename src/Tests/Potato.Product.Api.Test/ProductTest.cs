@@ -5,17 +5,18 @@ using Potato.Product.Application.Dtos;
 using Potato.Product.Application.Interfaces.Services;
 using PotatoStore.Base.Test;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
 namespace Potato.Product.Api.Test;
 
-//Given_When_Should
-
+[ExcludeFromCodeCoverage]
+[Trait("Api","Product")]
 public class ProductTest
 {
-    private readonly Mock<ILogger<ProductController>> _logger;
+    private readonly Mock<ILogger<ProductController>> _loggerMock;
 
     public readonly Mock<IProductAppService> _productAppServiceMock;
 
@@ -23,11 +24,11 @@ public class ProductTest
 
     public ProductTest()
     {
-        _logger = new Mock<ILogger<ProductController>>();
+        _loggerMock = new Mock<ILogger<ProductController>>();
         _productAppServiceMock = new Mock<IProductAppService>();
 
         productController = new ProductController(
-            _logger.Object,
+            _loggerMock.Object,
             _productAppServiceMock.Object);
     }
 
@@ -39,14 +40,14 @@ public class ProductTest
             .GenerateProductDto_Valid(1)
             .First();
 
-        var result = _productAppServiceMock.Setup(p => p
+        Moq.Language.Flow.IReturnsResult<IProductAppService>? result = _productAppServiceMock.Setup(p => p
         .UpdateAsync(
             It.IsAny<Guid>(),
             It.IsAny<ProductDto>()))
         .ReturnsAsync(() => productDto);
 
         //Act
-        var itemHttp = await productController
+        Microsoft.AspNetCore.Mvc.IActionResult? itemHttp = await productController
             .UpdateProductAsync(productDto.Id, productDto);
 
         //Assert
@@ -64,14 +65,14 @@ public class ProductTest
             .GenerateProductDto_Valid(1)
             .First();
 
-        var result = _productAppServiceMock.Setup(p => p
+        Moq.Language.Flow.IReturnsResult<IProductAppService>? result = _productAppServiceMock.Setup(p => p
         .UpdateAsync(
             It.IsAny<Guid>(),
             It.IsAny<ProductDto>()))
         .ReturnsAsync(() => default);
 
         //Act
-        var itemHttp = await productController
+        Microsoft.AspNetCore.Mvc.IActionResult? itemHttp = await productController
             .UpdateProductAsync(Guid.NewGuid(), productDto);
 
         //Assert
