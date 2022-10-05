@@ -4,10 +4,58 @@
 version: "3.7"
 
 services:
+  # product-potato-api:
+  #   hostname: Product-Potato-Api
+  #   container_name: productapi
+  #   restart: always
+  #   depends_on:
+  #     - postgresql-potato
+  #   build:
+  #     context: ../src
+  #     dockerfile: ../src/Potato.Product.Api/Dockerfile
+  #   ports:
+  #     - 9042:80
+  #     - 9043:443
+
+  postgresql-potato:
+    image: postgres:14.2-alpine
+    hostname: postgresql
+    container_name: postgresql
+    networks:
+      - potato-net
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass1234
+      POSTGRES_MULTIPLE_DATABASES: PotatoStore;SonarQube
+    volumes:
+      - ./db_init:/docker-entrypoint-initdb.d
+      - postgresql:/var/lib/postgresql
+      - postgresql_data:/var/lib/postgresql/data
+
+  pgAdmin-potato:
+    image: dpage/pgadmin4:6.14
+    hostname: potato-pgAdminhn
+    container_name: potato-pgAdmincn
+    networks:
+      - potato-net
+    depends_on:
+      - postgresql-potato
+    restart: always
+    ports:
+      - 9046:80
+      - 9047:443
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user@avanade.com
+      PGADMIN_DEFAULT_PASSWORD: pass1234
+      PGADMIN_DISABLE_POSTFIX: "true"
+
   sonarqube-potato:
+    privileged: true
     image: sonarqube:9.6.1-community
     hostname: sonarqube
     container_name: sonarqube
+    networks:
+      - potato-net
     depends_on:
       - postgresql-potato
     environment:
@@ -19,35 +67,9 @@ services:
       - sonarqube_extensions:/opt/sonarqube/extensions
       - sonarqube_logs:/opt/sonarqube/logs
       - sonarqube_conf:/opt/sonarqube/conf
+      - sonarqube_bundled-plugins:/opt/sonarqube/lib/bundled-plugins
     ports:
       - "9044:9000"
-
-  postgresql-potato:
-    image: postgres:14.2-alpine
-    hostname: postgresql
-    container_name: postgresql
-    environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: pass1234
-      POSTGRES_DB: sonarqube
-    volumes:
-      - postgresql:/var/lib/postgresql
-      - postgresql_data:/var/lib/postgresql/data
-
-  pgAdmin-potato:
-    image: dpage/pgadmin4:6.13
-    hostname: potato-pgAdminhn
-    container_name: potato-pgAdmincn
-    depends_on:
-      - postgresql-potato
-    restart: always
-    ports:
-      - 9046:80
-      - 9047:443
-    environment:
-      PGADMIN_DEFAULT_EMAIL: user@avanade.com
-      PGADMIN_DEFAULT_PASSWORD: pass1234
-      PGADMIN_DISABLE_POSTFIX: "true"
 
   # setup:
   #   image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION}
@@ -307,5 +329,6 @@ volumes:
   sonarqube_extensions:
   sonarqube_logs:
   sonarqube_conf:
+  sonarqube_bundled-plugins:
   postgresql:
   postgresql_data:
