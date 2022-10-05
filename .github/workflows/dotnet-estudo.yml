@@ -4,16 +4,19 @@ on:
   push:
     paths:
       - 'src/**'
-    branches: [ "main", "CoverletAndSonarQube" ]
+    tags:
+      - 'v*'
+    branches: [ "main" ]
   pull_request:
     paths:
       - 'src/**'
-    branches: [ "main", "CoverletAndSonarQube" ]
+    branches: [ "feature/**", fix/** ]
 
   workflow_dispatch:
 
 env: 
   solutionFolder: ./Potato.Product.sln
+  imageName: potatostoreproduct
 
 
 defaults:
@@ -46,8 +49,49 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: |
-        dotnet-sonarscanner begin /k:"felipementel_PotatoStore" /o:"felipementel" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-        dotnet restore $solutionFolder
-        dotnet build $solutionFolder --configuration Release
-        dotnet-coverage collect 'dotnet test --no-build' -f xml -o 'testresult/coverage.xml'        
+        dotnet-sonarscanner begin /k:"felipementel_PotatoStore" /o:"felipementel" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vscoveragexml.reportsPaths=coverage.xml 
+        dotnet restore $(solutionFolder)
+        dotnet build $(solutionFolder) --configuration Release
+        dotnet-coverage collect 'dotnet test --no-build' -f xml -o 'coverage.xml'        
         dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+  
+  docker:
+    needs: [build]
+    continue-on-error: false
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+          login-server: "https://index.docker.io/v1"
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Build e Push on Docker Hub
+        run: |
+          docker build . -f Potato.Product.Api/Dockerfile -t felipementel/potatoproduct:latest
+          docker tag felipementel/potatoproduct:latest felipementel/potatoproduct:$(date +%s)
+          docker push felipementel/potatoproduct
+          # docker push ghcr.io/felipementel/potatoproduct
+
+      # - name: Build and push
+      #   uses: docker/build-push-action@v2
+      #   with:
+      #     context: .
+      #     file: ./Potato.Product.Api/Dockerfile
+      #     push: true
+      #     tags: ${{ secrets.DOCKER_HUB_USERNAME }}/potatostoreproduct:latest
