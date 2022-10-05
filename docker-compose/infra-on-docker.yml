@@ -26,7 +26,7 @@ services:
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: pass1234
-      POSTGRES_MULTIPLE_DATABASES: PotatoStore;SonarQube
+      POSTGRES_MULTIPLE_DATABASES: '"PotatoStore";"SonarQube"'
     volumes:
       - ./db_init:/docker-entrypoint-initdb.d
       - postgresql:/var/lib/postgresql
@@ -59,7 +59,7 @@ services:
     depends_on:
       - postgresql-potato
     environment:
-      SONAR_JDBC_URL: jdbc:postgresql://postgresql-potato:5432/sonarqube
+      SONAR_JDBC_URL: jdbc:postgresql://postgresql-potato:5432/SonarQube
       SONAR_JDBC_USERNAME: user
       SONAR_JDBC_PASSWORD: pass1234
     volumes:
