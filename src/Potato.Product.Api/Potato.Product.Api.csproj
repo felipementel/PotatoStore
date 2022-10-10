@@ -4,20 +4,27 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<UserSecretsId>4d793e1e-82bb-4320-9e20-b8f8680d0a13</UserSecretsId>
+		<!--<UserSecretsId>4d793e1e-82bb-4320-9e20-b8f8680d0a13</UserSecretsId>-->
 		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<RepositoryUrl>https://github.com/felipementel/PotatoStore</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<AssemblyVersion>1.0.0.1</AssemblyVersion>
+		<UserSecretsId>a3522f8b-99f1-4617-9b38-5b537513e265</UserSecretsId>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AutoMapper" Version="11.0.1" />
-		<PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="6.0.8" />
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.8" />
+		<PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="6.0.2" />
+		<PackageReference Include="AspNetCore.HealthChecks.UI" Version="6.0.5" />
+		<PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="6.0.5" />
+		<PackageReference Include="AspNetCore.HealthChecks.UI.InMemory.Storage" Version="6.0.5" />
+		<PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="6.0.9" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.9" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
 		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
-		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.6" />
+		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.7" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.8">
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.9">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
@@ -25,6 +32,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\Potato.Product.Application\Potato.Product.Application.csproj" />
+		<ProjectReference Include="..\Potato.Product.Infra.CrossCutting\Potato.Product.Infra.CrossCutting.csproj" />
 		<ProjectReference Include="..\Potato.Product.Infra.Database\Potato.Product.Infra.Database.csproj" />
 	</ItemGroup>
 
