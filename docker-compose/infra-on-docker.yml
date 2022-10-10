@@ -7,6 +7,8 @@ services:
   # product-potato-api:
   #   hostname: Product-Potato-Api
   #   container_name: productapi
+  #   networks:
+  #     - potato-net
   #   restart: always
   #   depends_on:
   #     - postgresql-potato
@@ -21,6 +23,7 @@ services:
     image: postgres:14.2-alpine
     hostname: postgresql
     container_name: postgresql
+    restart: always
     networks:
       - potato-net
     environment:
@@ -31,29 +34,32 @@ services:
       - ./db_init:/docker-entrypoint-initdb.d
       - postgresql:/var/lib/postgresql
       - postgresql_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
 
   pgAdmin-potato:
     image: dpage/pgadmin4:6.14
     hostname: potato-pgAdminhn
     container_name: potato-pgAdmincn
+    restart: always
     networks:
       - potato-net
     depends_on:
       - postgresql-potato
-    restart: always
-    ports:
-      - 9046:80
-      - 9047:443
     environment:
       PGADMIN_DEFAULT_EMAIL: user@avanade.com
       PGADMIN_DEFAULT_PASSWORD: pass1234
       PGADMIN_DISABLE_POSTFIX: "true"
+    ports:
+      - 9046:80
+      - 9047:443
 
   sonarqube-potato:
     privileged: true
     image: sonarqube:9.6.1-community
     hostname: sonarqube
     container_name: sonarqube
+    restart: always
     networks:
       - potato-net
     depends_on:
@@ -325,10 +331,12 @@ volumes:
     driver: local
   # Volume for PostgreSQL database
   postgresql-db:
+  postgresql:
+  postgresql_data:
+  # Volume for SonarQube
   sonarqube_data:
   sonarqube_extensions:
   sonarqube_logs:
   sonarqube_conf:
   sonarqube_bundled-plugins:
-  postgresql:
-  postgresql_data:
+
