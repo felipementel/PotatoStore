@@ -1,8 +1,10 @@
-﻿using System.Text.Json;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace Potato.Product.Api.Converters
 {
+    [ExcludeFromCodeCoverage]
     public class DateOnlyConverter : JsonConverter<DateOnly>
     {
         private readonly string serializationFormat;
