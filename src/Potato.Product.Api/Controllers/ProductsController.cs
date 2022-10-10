@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Potato.Product.Application.Dtos;
 using Potato.Product.Application.Interfaces.Services;
 
-
 namespace Potato.Product.Api.Controllers;
 
 [ApiController]
@@ -43,7 +42,8 @@ public class ProductController : ControllerBase
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> CreateProduct([FromBody] ProductDto productDto)
+    public async Task<IActionResult> CreateProduct(
+        [FromBody] ProductDto productDto)
     {
         var item = await _productAppService.InsertAsync(productDto);
 
@@ -56,7 +56,9 @@ public class ProductController : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> UpdateProduct(Guid productId, [FromBody] JsonPatchDocument<ProductDto> patchProduct)
+    public async Task<IActionResult> UpdateProduct(
+        Guid productId, 
+        [FromBody] JsonPatchDocument<ProductDto> patchProduct)
     {
         var entity = await _productAppService.GetByIdAsync(productId);
 
@@ -75,7 +77,8 @@ public class ProductController : ControllerBase
     [Produces("application/json")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> DeleteAsync(Guid productId)
+    public async Task<IActionResult> DeleteAsync(
+        Guid productId)
     {
         var retorno = await _productAppService.DeleteAsync(productId);
         return retorno ? NoContent() : BadRequest($"ID Inválido: {productId}");
@@ -87,7 +90,9 @@ public class ProductController : ControllerBase
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> UpdateProductAsync(Guid productId, [FromBody] ProductDto productDto)
+    public async Task<IActionResult> UpdateProductAsync(
+        Guid productId, 
+        [FromBody] ProductDto productDto)
     {
         var item = await _productAppService.UpdateAsync(productId, productDto);
 
@@ -105,6 +110,5 @@ public class ProductController : ControllerBase
         var retorno = await _productAppService.GetAllAsync();
 
         return retorno.Any() ? Ok(retorno) : NotFound();
-
     }
 }
