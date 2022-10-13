@@ -1,9 +1,11 @@
 ﻿using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Potato.Product.Api.Extensions.HealthCheck
 {
+    [ExcludeFromCodeCoverage]
     public static class HealthCheckExtensions
     {
         public static void AddHealthCheckExtensions(

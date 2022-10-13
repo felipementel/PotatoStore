@@ -1,7 +1,9 @@
 ﻿using Potato.Product.Api.Converters;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Potato.Product.Api.Extensions.Api
 {
+    [ExcludeFromCodeCoverage]
     public static class ApiExtensions
     {
         public static void AddApiExtensions(this IServiceCollection services)

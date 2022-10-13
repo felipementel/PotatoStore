@@ -1,8 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Potato.Product.Infra.Database;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Potato.Product.Api.Extensions.EntityFramework
 {
+    [ExcludeFromCodeCoverage]
     public static class EntityFrameworkExtensions
     {
         public static void AddEntityFrameworkExtensions(

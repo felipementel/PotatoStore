@@ -4,7 +4,6 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<!--<UserSecretsId>4d793e1e-82bb-4320-9e20-b8f8680d0a13</UserSecretsId>-->
 		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
 		<RepositoryUrl>https://github.com/felipementel/PotatoStore</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
@@ -13,6 +12,14 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+		<PackageReference Include="Serilog" Version="2.12.0" />
+		<PackageReference Include="Serilog.AspNetCore" Version="6.0.1" />
+		<PackageReference Include="Serilog.Enrichers.Demystifier" Version="1.0.2" />
+		<PackageReference Include="Serilog.Enrichers.Environment" Version="2.2.0" />
+		<PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
+		<PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
+		<PackageReference Include="Serilog.Sinks.Elasticsearch" Version="8.4.1" />
 		<PackageReference Include="AspNetCore.HealthChecks.NpgSql" Version="6.0.2" />
 		<PackageReference Include="AspNetCore.HealthChecks.UI" Version="6.0.5" />
 		<PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="6.0.5" />

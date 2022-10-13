@@ -1,7 +1,9 @@
 ﻿using Potato.Product.Domain;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Potato.Product.Application.Dtos
 {
+    [ExcludeFromCodeCoverage]
     public record ProductDto
     {
         public ProductDto(
@@ -50,14 +52,14 @@ namespace Potato.Product.Application.Dtos
                 price: dto.Price
                 );
 
-        public static implicit operator ProductDto(Domain.Aggregates.Products.Entities.Product entity) =>
+        public static implicit operator ProductDto?(Domain.Aggregates.Products.Entities.Product entity) =>
             entity == null ? null :
             new(entity.Id,
                 entity.Name,
                 entity.Description,
                 //entity.url.Endereco,
                 entity.SKU,
-                entity.Price,
+                price: entity.Price,
                 entity.OnCreated,
                 entity.OnModified);
     }

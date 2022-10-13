@@ -5,9 +5,11 @@ using Potato.Product.Domain.Aggregates.Products.Interfaces.Repositories;
 using Potato.Product.Domain.Aggregates.Products.Interfaces.Services;
 using Potato.Product.Domain.Aggregates.Products.Services;
 using Potato.Product.Infra.Database.Repositories;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Potato.Product.Infra.CrossCutting;
 
+[ExcludeFromCodeCoverage]
 public static class IoC
 {
     public static void AddDependeciesInjections(this IServiceCollection Services)
@@ -17,6 +19,4 @@ public static class IoC
         Services.AddScoped<IProductAppService, ProductAppService>();
         Services.AddScoped<IProductService, ProductService>();
     }
-
-
 }
